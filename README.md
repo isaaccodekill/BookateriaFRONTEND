@@ -1,7 +1,7 @@
-##Bookateria-FE
+# Bookateria-FE
 The repo for the frontend of Bookateria 
 
-#Link
+### Link
 www.bookateria.net
 
 ## Available Scripts
