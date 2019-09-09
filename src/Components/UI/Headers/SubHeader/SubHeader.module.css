@@ -1,0 +1,80 @@
+.Subheader{
+	width: 100%;
+	padding: 15px 30px;
+	display: flex;
+	align-items: center;
+	position: fixed;
+	top: 64px;
+}
+
+.menu {
+	color: #fff;
+	margin-right: 30px;
+	padding: 5px 10px;
+	cursor: pointer;
+	z-index: 100;
+}
+.bar{
+	width: 35px;
+	height: 3px;
+	position: relative;
+	background-color: #fff;
+	transition: all 0.3s ease-in;
+}
+.bar::after, .bar::before{
+	width: 35px;
+	height: 3px;
+	position: absolute;
+	content: '';
+	background-color: #fff;
+	transition: all 0.3s ease-in;
+}
+.bar::after{
+	top: 9px;	
+}
+
+.bar::before{
+	bottom: 9px;
+}
+
+.active{
+	background-color: transparent; 
+	transition: all 0.3s ease-in;
+}
+.active::before{
+	opacity: 1;
+	transform: translateY(9px) rotate(45deg);
+	background-color:  #fff;
+}
+.active::after{
+	opacity: 1;
+	transform: translateY(-9px) rotate(-45deg);
+	background-color: #fff;
+}
+
+.inactive{
+	opacity: 1; 
+	transition: all 0.3s ease-in;
+}
+.inactive::before{
+	transform: rotate(0);
+	opacity: 1;
+}
+.inactive::after{
+	transform: rotate(0);
+	opacity: 1;
+}
+
+
+
+.menu svg, .menu path{
+	color: currentColor;
+	fill: currentColor;
+	width: 100%;
+	height: 100%;
+}
+
+.button{
+	position: absolute;
+	right: 30px;
+}

@@ -1,0 +1,35 @@
+.Sidebar{
+	position: absolute;
+	top: 48px;
+	left: 0;
+	background-image: linear-gradient(to bottom, rgba(0, 56, 100, 0.9 ), rgba(0, 24, 48, 0.9));
+	width: 40%;
+	min-height: calc(100vh - 64px);
+	height: 100%;
+	padding: 20px;
+	padding-top: 50px;
+	visibility: hidden;
+	opacity: 0;
+	transition: all 0.3s ease-in;
+}
+
+.show{
+	visibility: visible;
+	opacity: 1;
+}
+
+
+.Sidebar > * {
+	display: block;
+	margin-bottom: 35px;
+}
+.SearchBarDiv{
+	display: none;
+}
+
+
+@media (max-width: 768px){
+	.SearchBarDiv{
+		display: block;
+	}	
+}

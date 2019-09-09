@@ -1,0 +1,40 @@
+.BookDetail{
+	border-radius: 8px;
+	box-shadow: 0 3px 5px rgba(#ccc, 0.7);
+	padding: 10px;
+	display: flex;
+	background-color: #EFF3F6;
+	transition: all 0.3s ease-in;
+	cursor: pointer;
+}
+.BookDetail:hover{
+	background-color: #cccccc90;	
+}
+
+.header{
+	color: #37536E;
+	font-size: 15px;
+	margin-bottom: 15px;
+}
+.details{
+	padding: 20px;
+}
+.image{
+	width: 45%;
+}
+.smallerDetail{
+	display: flex;
+	align-items: center;
+	margin-bottom: 5px;
+}
+.smallerDetails svg{
+	width: 15px;
+	height: 15px;
+	color: #667A8E;
+	margin-right: 25px;
+}
+
+.text{
+	color: #667A8E;
+	font-size: 13px;
+}

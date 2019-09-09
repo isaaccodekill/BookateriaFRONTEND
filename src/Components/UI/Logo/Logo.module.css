@@ -1,0 +1,15 @@
+.Logo{
+	height: 100%;
+	max-width: 305px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+.h1{
+	font-size: 25px;
+	color: #fff;
+}
+.Logo svg{
+	height: 50px;
+	width: 50px;
+}

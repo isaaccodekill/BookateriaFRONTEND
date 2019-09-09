@@ -1,0 +1,74 @@
+.Allbooks{
+	height: 100%;
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+.BookList{
+	width: 78%;
+	padding: 20px;
+	padding-top: 0;
+}
+.PopularDownloads{
+	width: 20%;
+	height: 100%;
+	min-height: 70vh;
+	position: fixed;
+	right: 2%;
+}
+
+.GridContainer{
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(290px,1fr)); 
+	grid-gap: 10px;
+	grid-auto-rows: 175px;
+}
+
+.SectionHeader{
+	font-size: 12px;
+	color: #001830;
+	margin-top: 125px;
+	margin-bottom: 15px;
+	display: block;
+}
+.LargeImage{
+	width: 100%;
+	background-color: red;
+	height: 270px;
+	border-radius: 8px;
+	margin-bottom: 15px;
+}
+
+.Subheading{
+	font-size: 15px;
+	color: #001830;
+	margin-bottom: 10px;
+}
+.smallerDetail{
+	display: flex;
+	align-items: center;
+	margin-bottom: 5px;
+}
+.header{
+	color: #37536E;
+	font-size: 17px;
+	margin-bottom: 15px;
+}
+.smallerDetails svg{
+	width: 15px;
+	height: 15px;
+	color: #667A8E;
+	margin-right: 25px;
+}
+
+.text{
+	color: #667A8E;
+	font-size: 13px;
+}
+.btn{
+	margin-top: 13px;
+}

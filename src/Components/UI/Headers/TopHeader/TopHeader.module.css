@@ -1,0 +1,19 @@
+.TopHeader{
+	width: 100%;
+	padding: 7px 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #001830;
+	position: fixed;
+	/*background-image: linear-gradient(to right, rgb(0, 56, 100 ), rgb(0, 24, 48), rgb(168, 123, 41))*/
+}
+
+@media max-width(1000px){
+	.TopHeader{
+		justify-content: center;
+	}
+	.searchBar{
+		display: none;
+	}
+}
