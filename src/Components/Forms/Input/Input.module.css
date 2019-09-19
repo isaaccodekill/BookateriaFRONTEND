@@ -1,0 +1,50 @@
+.InputGroup{
+	width: 100%;
+	display: inline-block;
+	margin-bottom: 25px;
+}
+.Label{
+	font-size: 10px;
+	display: block;
+	margin-bottom: 5px;
+	color: #00386E;
+}
+.imageInput{
+	width: 100%;
+
+}
+
+.inputNormal{
+	border-radius: 8px;
+	border: none;
+	background-color: #EFF3F6;
+	padding: 7px 15px;
+	font-size: 15px;
+	outline: none;
+}
+
+.textArea{
+	border-radius: 8px;
+	border: none;
+	background-color: #EFF3F6;
+	padding: 7px 15px;
+	font-size: 15px;
+	outline: none;
+	height: 150px;
+}
+.errorMessage{
+	color: red;
+	font-size: 10px;
+	margin: 5px 0;
+}
+.fileInput{
+	border-radius: 8px;
+	border: none;
+	background-color: #EFF3F6;
+	padding: 7px 15px;
+	font-size: 15px;
+	outline: none;	
+}
+
+
+

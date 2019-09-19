@@ -1,0 +1,21 @@
+.Btn{
+	font-size: 13px;
+	border-radius: 8px;
+	text-align: center;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.Btn svg{
+	height: 15px;
+	width: 15px;
+	margin-right: 10px;
+}
+.BtnBig{
+	padding: 10px 35px;
+}
+
+.BtnSmall{
+	padding: 10px 25px;
+}

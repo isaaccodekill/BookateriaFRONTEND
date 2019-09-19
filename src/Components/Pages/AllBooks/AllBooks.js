@@ -20,62 +20,62 @@ const Allbooks = () => {
 					Books
 				</span>
 				<div className={styles.GridContainer}>
-					<BookPreview imageIncluded  BookDetails={{
+					<BookPreview imageIncluded clickable  BookDetails={{
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />
-					<BookPreview imageIncluded  BookDetails={{
+					<BookPreview imageIncluded clickable  BookDetails={{
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />
-					<BookPreview imageIncluded  BookDetails={{
+					<BookPreview imageIncluded clickable  BookDetails={{
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />	
-					<BookPreview imageIncluded  BookDetails={{
+					<BookPreview imageIncluded clickable  BookDetails={{
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />	
-					<BookPreview imageIncluded  BookDetails={{
+					<BookPreview imageIncluded clickable  BookDetails={{
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />																								
-					<BookPreview imageIncluded  BookDetails={{
+					<BookPreview imageIncluded clickable  BookDetails={{
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />
-					<BookPreview imageIncluded  BookDetails={{
+					<BookPreview imageIncluded clickable  BookDetails={{
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />	
-					<BookPreview imageIncluded  BookDetails={{
+					<BookPreview imageIncluded clickable  BookDetails={{
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />																								
-					<BookPreview imageIncluded  BookDetails={{
+					<BookPreview imageIncluded clickable  BookDetails={{
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />
-					<BookPreview imageIncluded  BookDetails={{
+					<BookPreview imageIncluded clickable  BookDetails={{
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />	
-					<BookPreview imageIncluded  BookDetails={{
+					<BookPreview imageIncluded clickable  BookDetails={{
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />																								
-					<BookPreview imageIncluded  BookDetails={{
+					<BookPreview imageIncluded clickable  BookDetails={{
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	

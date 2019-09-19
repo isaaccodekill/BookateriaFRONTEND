@@ -1,7 +1,7 @@
 .SearchBar{
- 	width: 500px;
+ 	width: 100%;
  	border-radius: 8px;
- 	padding: 10px;
+ 	padding: 8px;
  	position: relative;
  	background-color: #fff;
 }
@@ -9,7 +9,7 @@
 .searchButton{
 	border: none;
 	position: absolute;
-	top: 7px;
+	top: 5px;
 	left: 10px;
 	width: 35px;
 	height: 35px;

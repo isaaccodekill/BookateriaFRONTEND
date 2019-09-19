@@ -6,10 +6,12 @@
 	align-items: center;
 	background-color: #001830;
 	position: fixed;
-	/*background-image: linear-gradient(to right, rgb(0, 56, 100 ), rgb(0, 24, 48), rgb(168, 123, 41))*/
+}
+.searchBar{
+	width: 37%;
 }
 
-@media max-width(1000px){
+@media (max-width: 768px){
 	.TopHeader{
 		justify-content: center;
 	}

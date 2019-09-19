@@ -1,13 +1,17 @@
 .BookDetail{
 	border-radius: 8px;
-	box-shadow: 0 3px 5px rgba(#ccc, 0.7);
+	width: 100%;
 	padding: 10px;
 	display: flex;
-	background-color: #EFF3F6;
 	transition: all 0.3s ease-in;
+}
+
+.clickable{
+	box-shadow: 0 3px 5px rgba(#ccc, 0.7);
+	background-color: #EFF3F6;
 	cursor: pointer;
 }
-.BookDetail:hover{
+.clickable:hover{
 	background-color: #cccccc90;	
 }
 
@@ -37,4 +41,8 @@
 .text{
 	color: #667A8E;
 	font-size: 13px;
+}
+.btnContainer{
+	margin-top: 60px;
+	width: 150px;
 }

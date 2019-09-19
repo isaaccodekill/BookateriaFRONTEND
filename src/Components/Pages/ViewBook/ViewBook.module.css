@@ -1,0 +1,50 @@
+.ViewBook {
+	width: 100%;
+	min-height: 100vh;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.BookDetails{
+	width: 60%;
+	padding: 20px;
+	padding-top: 0;
+}
+
+.BookDetails h2{
+	font-size: 	25px;
+}
+.similarBooks{
+	width: 25%;
+	height: 100%;
+	min-height: 70vh;
+	position: fixed;
+	right: 2%;
+}
+.similarBooks > div {
+	height: 140px;
+	margin-bottom: 10px;
+}
+.similarBooks > div h2{
+	font-size: 	14px;
+}
+.similarBooks span {
+	font-size: 	12px;
+}
+.SectionHeader{
+	font-size: 13px;
+	color: #001830;
+	margin-top: 125px;
+	margin-bottom: 10px;
+	display: block;
+	padding-left: 10px;
+}
+.bookdecription{
+	font-size: 14px;
+	padding: 10px;
+}
+.headerSmall{
+	margin: 10px 0 0 10px;
+	font-size: 15px;
+}

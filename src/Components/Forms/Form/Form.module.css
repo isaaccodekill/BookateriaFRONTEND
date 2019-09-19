@@ -1,0 +1,41 @@
+.Form{
+	position: absolute;
+	border-top: 3px solid #00386e;
+	min-width: 400px;
+	height: 300px;
+	box-shadow: 0 8px 16px #00000025;
+	padding: 30px;
+	top: 175px;
+	left: 50%;
+	transform: translateX(-50%);
+	
+}
+
+.formHeading{
+	font-size: 16px;
+	margin-bottom: 25px;
+	display: block;
+	text-align: center;
+	font-weight: 200;
+}
+
+.formSubmit{
+	border: none;
+	border-radius: 8px;
+	padding: 10px 30px;
+	max-width: 250px;
+	width: 100%;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 30px;
+	cursor: pointer;
+}
+
+@media (max-width: 768px) {
+	.Form{
+		width: 100%;
+		box-shadow: none;
+		padding: 30px 20px;
+	}
+}

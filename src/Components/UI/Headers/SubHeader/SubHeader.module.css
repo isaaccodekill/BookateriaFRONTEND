@@ -1,6 +1,6 @@
 .Subheader{
 	width: 100%;
-	padding: 15px 30px;
+	padding: 17px 20px;
 	display: flex;
 	align-items: center;
 	position: fixed;
@@ -15,14 +15,14 @@
 	z-index: 100;
 }
 .bar{
-	width: 35px;
+	width: 30px;
 	height: 3px;
 	position: relative;
 	background-color: #fff;
 	transition: all 0.3s ease-in;
 }
 .bar::after, .bar::before{
-	width: 35px;
+	width: 30px;
 	height: 3px;
 	position: absolute;
 	content: '';
@@ -37,35 +37,35 @@
 	bottom: 9px;
 }
 
-.active{
+.colorBar, .colorBar::after, .colorBar::before{
+	background-color: #001830;
+}
+
+.bar.active{
 	background-color: transparent; 
 	transition: all 0.3s ease-in;
 }
-.active::before{
+.bar.active::before{
 	opacity: 1;
 	transform: translateY(9px) rotate(45deg);
 	background-color:  #fff;
 }
-.active::after{
+.bar.active::after{
 	opacity: 1;
 	transform: translateY(-9px) rotate(-45deg);
 	background-color: #fff;
 }
 
-.inactive{
-	opacity: 1; 
-	transition: all 0.3s ease-in;
-}
-.inactive::before{
-	transform: rotate(0);
+.colorBar.active::before{
 	opacity: 1;
+	transform: translateY(9px) rotate(45deg);
+	background-color: #001830;
 }
-.inactive::after{
-	transform: rotate(0);
+.colorBar.active::after{
 	opacity: 1;
+	transform: translateY(-9px) rotate(-45deg);
+	background-color: #001830;
 }
-
-
 
 .menu svg, .menu path{
 	color: currentColor;
@@ -77,4 +77,11 @@
 .button{
 	position: absolute;
 	right: 30px;
+}
+
+
+@media (max-width: 700px){
+	.NavItems{
+		display: none;
+	}
 }

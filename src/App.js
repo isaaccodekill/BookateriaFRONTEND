@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import NotFoundError from './Components/UI/ErrorPages/NotFoundError'
 import ServerError from './Components/UI/ErrorPages/ServerError'
 import {  Router, Route, Switch  } from 'react-router-dom'
-import Allbooks from './Components/Pages/AllBooks/AllBooks'
 import NavContextProvider from './Contexts/NavContext'
+
+// page imports
+import Allbooks from './Components/Pages/AllBooks/AllBooks'
+import ViewBook from './Components/Pages/ViewBook/ViewBook'
+import SignUp from './Components/Pages/SignUp/SignUp'
+
+
 
 class App extends Component {
   render() {
@@ -11,7 +17,9 @@ class App extends Component {
     	<NavContextProvider>
     		<Switch>
 				<Route path="/books" exact  component={Allbooks} />
-				<Route component={NotFoundError} />
+        <Route path="/book/:id" component={ViewBook} />
+        <Route path="/signup" exact component={SignUp} />
+				<Route component={NotFoundError}/>
 			</Switch>
     	</NavContextProvider>
     ) 

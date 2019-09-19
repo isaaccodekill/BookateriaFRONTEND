@@ -6,10 +6,15 @@
 	align-items: center;
 }
 .h1{
-	font-size: 25px;
+	font-size: 23px;
 	color: #fff;
 }
 .Logo svg{
 	height: 50px;
 	width: 50px;
+}
+@media (max-width: 768px){
+	.Logo{
+		justify-content: center;
+	}
 }

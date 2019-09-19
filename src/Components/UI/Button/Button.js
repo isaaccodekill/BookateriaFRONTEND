@@ -1,20 +1,14 @@
 import React from 'react'
+import styles from './Button.module.css'
 
-const Button  = ({ bigSize, backgroundColor, color, Text, action }) => {
-	const style =  {
-		fontSize: "13px",
-		color: color,
-		backgroundColor: backgroundColor,
-		borderRadius: '8px',
-		textAlign: "center"
-	}
-	const sizestyling = bigSize ? {
-		padding: '10px 35px',
-	} : {
-		padding: '10px 25px'
-	}
+const Button  = ({ bigSize, backgroundColor, color, Text, Icon, action }) => {
+	const btnClasses = bigSize ? [styles.Btn, styles.BtnBig] : [styles.Btn, styles.BtnSmall]  	
 	return (
-		<div onClick={action} style= {{...style, ...sizestyling}}>
+		<div onClick={action}
+				className={btnClasses.join(' ')} 
+				style={{color: color,
+				backgroundColor: backgroundColor}}	>
+			{Icon}
 			{Text}
 		</div>
 	)
