@@ -2,25 +2,27 @@ import React from 'react'
 import styles from './Input.module.css'
 import { ReactComponent as AddImage } from '../../../assets/images/Union 44.svg'
 
-const Input = ({ label, inputConfig,  action , value, erorrs}) => {
+
+const Input = ({ Type, label, inputConfig, value, erorrs}) => {
 	let input = null
-	Switch(inputConfig.type){
+	Switch(Type){
 		case("input"):
 			input = (<input className={styles.inputNormal} type={inputConfig.textType} value={value} onChange={action} />)
 		case("textArea"):
 			input = (<textArea className={styles.textArea} value={value} onChange={action}/>)	
 		case("image"):	
 			input = (	<div className="imageupload">
-							<input className={styles.imageInput} type="file" accept="image/*"  onChange={action}/>
+						<input className={styles.imageInput} type="file" accept="image/*"  onChange={action}/>
 							<div className="drag-click-text">
-								<AddImage/>	
+								<AddImage/>	 
 								<h3>Click Or Drag Image Here</h3>
 							</div>
-							<div className="image-previewSection">
+							<div className="cancelDiv">x</div>
+							<div className="imagePreviewSection">
 								<img src="#" alt="uploaded image" className="imageContent"/>
 							</div>
 						</div>
-					)
+				)
 		case("file"):
 			input = (<input className={styles.fileInput} type="file" value={value} onChange={action} placeholder="select file" />) 		
 	}
