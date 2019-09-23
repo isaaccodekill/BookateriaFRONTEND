@@ -24,6 +24,21 @@ decide to add that steven phone click event
 
 
 
+FUCTIONALITY THAT MUST BE CONCLUDED TODAY
+==========================================
+
+1  I must be able to pass in a config object to the forms component and then ill get the requred form that i need
+2 I must be able to upload the required files and see the image (we shall use cloudinary) , and the name of the book
+3 Create all the required form pages
+4 I must create the neat scroll bar of the the right hand side of the screen
+5 All the created pages must be responsive
+6 Create the Requested books page (Must be responsive)
+7 Create the empty bookarteria page (Must be responsive)
+8 Create the homepage (Must be responsive)
+
+
+
+
 
 
 

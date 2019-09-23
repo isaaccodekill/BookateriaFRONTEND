@@ -3,35 +3,62 @@ import styles from './Input.module.css'
 import { ReactComponent as AddImage } from '../../../assets/images/Union 44.svg'
 
 
-const Input = ({ Type, label, inputConfig, value, erorrs}) => {
+const Input = ({ name, Type, inputConfig, value, erorrs, action}) => {
 	let input = null
-	Switch(Type){
+	console.log(Type)
+	switch(Type){
 		case("input"):
-			input = (<input className={styles.inputNormal} type={inputConfig.textType} value={value} onChange={action} />)
+			input = (<React.Fragment>
+						<label htmlFor={name} className={styles.InputGroup}>
+							<p className={styles.Label}>{inputConfig.placeholder}</p>
+							<input id={name} className={styles.inputNormal} type={inputConfig.textType} value={value} onChange={(e) => action(e)} />
+						</label>
+					</React.Fragment>)
+			break
 		case("textArea"):
-			input = (<textArea className={styles.textArea} value={value} onChange={action}/>)	
+			input = (
+				<React.Fragment>
+						<label htmlFor={name} className={styles.InputGroup}>
+							<p className={styles.Label}>{inputConfig.placeholder}</p>
+							<textArea id={name} className={styles.textArea} value={value} onChange={(e) => action(e)}/>
+						</label>
+					</React.Fragment>)
+			break	
 		case("image"):	
-			input = (	<div className="imageupload">
-						<input className={styles.imageInput} type="file" accept="image/*"  onChange={action}/>
-							<div className="drag-click-text">
+			input = (
+						<label htmlFor={name}>
+							<div className={styles.imageupload}>
+							<input id={name} className={styles.imageInput} type="file" accept="image/*"  onChange={(e) => action(e)}/>
+							<div className={styles.dragClickText}>
 								<AddImage/>	 
 								<h3>Click Or Drag Image Here</h3>
 							</div>
-							<div className="cancelDiv">x</div>
-							<div className="imagePreviewSection">
-								<img src="#" alt="uploaded image" className="imageContent"/>
-							</div>
+							{ value ? <React.Fragment>
+								<div className={styles.cancelDiv}>x</div>
+								<div className={styles.imagePreviewSection}>
+									<img src="#" className={styles.imageContent}/>
+								</div>
+							</React.Fragment>: null }
 						</div>
+						</label>
 				)
+			break
 		case("file"):
-			input = (<input className={styles.fileInput} type="file" value={value} onChange={action} placeholder="select file" />) 		
+			input = (
+					<React.Fragment>
+						<label htmlFor={name} className={styles.InputGroup}>
+							<p className={styles.Label}>{inputConfig.placeholder}</p>
+							<input id={name} className={styles.fileInput} type="file" value={value} onChange={(e) => action(e)} placeholder="select file" />
+							<div className={styles.dummy}>Upload book</div>
+						</label>
+					</React.Fragment>) 
+			break
 	}
 	return (
-		<div classname={styles.InputGroup}>
-			<p className={syles.label}>{label}</p>
-				{input}
-			{erorrs[0] ? <p className={styles.errorMessage}
-			 {erorrs[0]} 
+		<div className={styles.InputGroup}>
+			{input}
+			{erorrs ? <p className={styles.errorMessage}>
+			 			{erorrs[0]} 
 			</p> : null }
 		</div>
 	)

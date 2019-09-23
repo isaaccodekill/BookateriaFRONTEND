@@ -9,7 +9,7 @@ const SignUp = () => {
 		<div className={styles.SignUp}>
 			<TopHeader/>
 			<SubHeader background button={true}/>
-			<Form Heading="Sign Up" buttonConfig={{color: "#fff", backgroundColor: "#00386e"}}/>
+			{/*<Form Heading="Sign Up" buttonConfig={{color: "#fff", backgroundColor: "#00386e"}}/>*/}
 		</div>
 	)
 }

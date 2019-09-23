@@ -1,13 +1,32 @@
 .InputGroup{
 	width: 100%;
-	display: inline-block;
-	margin-bottom: 25px;
+	margin-bottom: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/*background-color: red;*/
+}
+.dummy{
+	width: 100%;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	display: flex;
+	align-items: center;
+	padding: 10px 15px;
+	cursor: pointer;
+}
+.InputGroup input[type="file"]{
+	visibility: hidden;
+	height: 0;
+	width: 0;
+
 }
 .Label{
-	font-size: 10px;
+	font-size: 12px;
 	display: block;
 	margin-bottom: 5px;
 	color: #00386E;
+	align-self: flex-start;
 }
 .imageInput{
 	width: 100%;
@@ -15,22 +34,22 @@
 }
 
 .inputNormal{
-	border-radius: 8px;
-	border: none;
-	background-color: #EFF3F6;
-	padding: 7px 15px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	padding: 10px 15px;
 	font-size: 15px;
 	outline: none;
+	width: 100%;
 }
 
 .textArea{
-	border-radius: 8px;
-	border: none;
-	background-color: #EFF3F6;
-	padding: 7px 15px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	padding: 15px 15px;
 	font-size: 15px;
 	outline: none;
 	height: 150px;
+	width: 100%;
 }
 .errorMessage{
 	color: red;
@@ -39,8 +58,8 @@
 }
 .fileInput{
 	border-radius: 8px;
-	border: none;
-	background-color: #EFF3F6;
+	border: 1px solid #ccc;
+	/*background-color: #EFF3F6;*/
 	padding: 7px 15px;
 	font-size: 15px;
 	outline: none;	
@@ -49,8 +68,10 @@
 	width: 100%;
 	height: 250px;
 	background-color: transparent;
-	border: 2px dotted #CCD9E3;
+	border: 1px solid #ccc;
 	position: relative;
+	max-width: 250px;
+	margin-bottom: 25px;
 }
 /*action classes for the image upload class*/
 .activeImageHolder{
@@ -59,7 +80,7 @@
 	border: none;
 }
 
-.drag-click-text{
+.dragClickText{
 	height: 100%;
 	width: 100%;
 	color: #CCD9E3;
@@ -67,15 +88,17 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	padding: 20px;
 }
-.drag-click-text svg{
-	height: 35px;
-	width: 35px;
+.dragClickText svg{
+	height: 30px;
+	width: 30px;
 	color: #ccd9e3;
 	transition: all 0.3s ease-in;	
+	margin-bottom: 15px
 }
-.drag-click-text h3{
-	font-size: 20px;
+.dragClickText h3{
+	font-size: 17px;
 }
 .cancelDiv{
 	position: absolute;

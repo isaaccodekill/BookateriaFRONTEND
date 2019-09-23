@@ -8,6 +8,7 @@ import NavContextProvider from './Contexts/NavContext'
 import Allbooks from './Components/Pages/AllBooks/AllBooks'
 import ViewBook from './Components/Pages/ViewBook/ViewBook'
 import SignUp from './Components/Pages/SignUp/SignUp'
+import UploadBook from './Components/Pages/UploadBook/UploadBook'
 
 
 
@@ -19,6 +20,7 @@ class App extends Component {
 				<Route path="/books" exact  component={Allbooks} />
         <Route path="/book/:id" component={ViewBook} />
         <Route path="/signup" exact component={SignUp} />
+        <Route path="/uploadbook" exact component={UploadBook}/>
 				<Route component={NotFoundError}/>
 			</Switch>
     	</NavContextProvider>
