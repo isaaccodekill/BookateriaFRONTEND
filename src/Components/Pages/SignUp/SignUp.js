@@ -8,24 +8,23 @@ const SignUp = () => {
 
 	const configObject = {
 		firstname: {
-			elementType: "image",
+			elementType: "input",
 			elementConfig: {
-				// placeholder: "Add a cover photo",
-				type: "file"	
+				placeholder: "First Name",
+				type: 'text'
 			},
-			previewUrl: "",
 			value: "",
 			valid: true,
 			validations: {
-				maxSize: "10mb",
-				alloweFileType: ['jpeg', 'png', 'svg']
+				required: true,
+				maxCharLength: 256
 			},
 			errorMessages: []
 		},
 		lastname: {
 			elementType: "input",
 			elementConfig: {
-				placeholder: "Add a title",
+				placeholder: "Last Name",
 				type: 'text'
 			},
 			value: "",
@@ -36,11 +35,11 @@ const SignUp = () => {
 			},
 			errorMessages: []
 		},
-		Author: {
+		email: {
 			elementType: "input",
 			elementConfig: {
-				placeholder: "Add an Author",
-				type: 'text'
+				placeholder: "Email Address",
+				type: 'email'
 			},
 			value: "",
 			valid: true,
@@ -50,10 +49,10 @@ const SignUp = () => {
 			},
 			errorMessages: []
 		},
-		Category: {
+		username: {
 			elementType: "input",
 			elementConfig: {
-				placeholder: "Add a Category",
+				placeholder: "Username",
 				type: 'text'
 			},
 			value: "",
@@ -64,38 +63,43 @@ const SignUp = () => {
 			},
 			errorMessages: []
 		},
-		Description: {
-			elementType: "textArea",
+		password: {
+			elementType: "input",
 			elementConfig: {
-				placeholder: "Add a Description",
-				type: 'text'
+				placeholder: "Password",
+				type: 'password'
 			},
 			value: "",
 			valid: true,
-			validations: {},
+			validations: {
+				required: true,
+				maxCharLength: 256,
+				minLength: 8
+			},
 			errorMessages: []
 		},
-		bookFile: {
-			elementType: "file",
+		confirmPassword: {
+			elementType: "input",
 			elementConfig: {
-				placeholder: "Add the book file",
-				type: "file"	
+				placeholder: "Confirm Password",
+				type: 'password'
 			},
-			previewUrl: "",
-			value: "", // need to find the way to make the name of the book show as i upload it
+			value: "",
 			valid: true,
 			validations: {
 				required: true,
-				alloweFileType: ["pdf", "epub"]
+				confirmPassword: true,
+				maxCharLength: 256,
+				minLength: 8
 			},
 			errorMessages: []
 		}
 	}
 
 	const buttonConfig = {
-		text: "Upload Book",
+		text: "Create Account",
 		style: {  
-			backgroundColor: "#4bce61",
+			backgroundColor: "#00386e",
 			color: "#fff"
 		}
 	}
@@ -105,7 +109,7 @@ const SignUp = () => {
 		<div className={styles.SignUp}>
 			<TopHeader/>
 			<SubHeader background button={true}/>
-			{/*<Form Heading="Sign Up" buttonConfig={{color: "#fff", backgroundColor: "#00386e"}}/>*/}
+			<Form Heading="Sign Up" configuration={configObject} buttonConfig={buttonConfig}/>
 		</div>
 	)
 }

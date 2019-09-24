@@ -11,6 +11,7 @@ import SignUp from './Components/Pages/SignUp/SignUp'
 import UploadBook from './Components/Pages/UploadBook/UploadBook'
 import Homepage from './Components/Pages/Homepage/Homepage'
 import Login from './Components/Pages/Login/Login'
+import RequestPage from './Components/Pages/RequestPage/RequestPage'
 
 
 
@@ -25,6 +26,7 @@ class App extends Component {
         <Route path="/signup" exact component={SignUp} />
         <Route path="/uploadbook" exact component={UploadBook}/>
         <Route path="/login" exact component={Login}/>
+        <Route path="/requestbook" exact component={RequestPage}/>
 				<Route component={NotFoundError}/>
 			</Switch>
     	</NavContextProvider>
