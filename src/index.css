@@ -11,3 +11,7 @@ html{
   text-decoration: none;
   color: inherit;
 }
+body{
+	background-color: #EFF3F6;
+	font-family: 'Source Sans Pro', sans-serif;
+}

@@ -1,6 +1,6 @@
 .Btn{
 	font-size: 13px;
-	border-radius: 8px;
+	border-radius: 5px;
 	text-align: center;
 	cursor: pointer;
 	display: flex;
@@ -14,8 +14,10 @@
 }
 .BtnBig{
 	padding: 10px 35px;
+	width: 250px;
 }
 
 .BtnSmall{
 	padding: 10px 25px;
+	width: 200px;
 }

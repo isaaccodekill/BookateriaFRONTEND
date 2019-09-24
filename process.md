@@ -22,6 +22,15 @@ create a layout component
 decide to add that steven phone click event
 
 
+<!-- final fight -->
+add the font
+create the homepage
+create the login, sign up and sign in pages
+add the drag and drop to the image upload , make sur ethe image upload works
+create the requested books page
+
+
+
 
 
 FUCTIONALITY THAT MUST BE CONCLUDED TODAY

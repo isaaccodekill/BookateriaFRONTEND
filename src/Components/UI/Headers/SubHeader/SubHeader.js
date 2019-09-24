@@ -7,7 +7,7 @@ import SideBar from '../../../SideBar/Sidebar'
 
 
 const Subheader = ({ background, showButton }) => {
-	const backgroundColor = background ? 'linear-gradient(to right, rgb(0, 56, 110 ) 70%,  rgb(102, 180, 225))' :  'linear-gradient(to right, rgb(255, 255, 255), rgb(239, 243, 246))'
+	const backgroundColor = background ? 'linear-gradient(to right, rgb(0, 56, 110 ) 70%,  rgb(102, 180, 225))' :  'transparent'
 	let button = null
 	let text = "Sign in"
 	

@@ -107,12 +107,11 @@ const Form = ( { Heading,  configuration, buttonConfig } ) => {
 	const [formValid, setFormValidity] = useState(true)
 
 	// the function that make sure each value is set into the object as the values in the target element changes
-	const setInputData = (e) => {
+	const setInputData = (e, valueParam) => {
 		// get which piece of the state it is and its current value
-		const targetData = e.name
+		console.log(e.target)
+		const targetData = e.target.name
 		const currentValue = e.target.value
-
-		// immutalilty :)
 		const updatedDetailsObject = {...detailsObject}
 		const selectedPiece = {...updatedDetailsObject[targetData]}
 
@@ -122,12 +121,27 @@ const Form = ( { Heading,  configuration, buttonConfig } ) => {
 		selectedPiece.errorMessages = [...updatedDetailsObject[targetData].errorMessages] 
 
 		// set the value 
-		selectedPiece.value = currentValue
+		if (valueParam){
+			if (selectedPiece.elementType === "file"){
+				console.log(e.target.files[0])
+				selectedPiece.value = valueParam	
+			}else{	
+				selectedPiece.value = valueParam
+			}	
+		} else {
+			if (selectedPiece.elementType === "file"){
+				console.log(e.target.files[0])
+				selectedPiece.value = e.target.files[0]	
+			}else{	
+				selectedPiece.value = currentValue
+			}
+		}
+
 		updatedDetailsObject[targetData] = {...selectedPiece}
 		setDetailsObject(updatedDetailsObject)
 
 		// now that we have successfully updated the data we shall proceed to run the validations for the whole form
-		runValidations(targetData) 
+		// runValidations(targetData) 
 	}
 
 	const runValidations = (data) => {
@@ -149,16 +163,22 @@ const Form = ( { Heading,  configuration, buttonConfig } ) => {
 				}
 			}
 			if (validation === 'maxLength'){
-				if (value.length() > validations.maxLength){
+				if (value.length > validations.maxLength){
 					errorMessages.push(`This field must contain less than ${validations.maxLength} characters`) 
 					setFormValidity(false)
 				} 
 			}
 			if (validation === 'minLength'){
-				if (value.length() < validations.minLength){
+				if (value.length < validations.minLength){
 					errorMessages.push(`This field must contain more than ${validations.minLength} characters`)
 					setFormValidity(false)
 				} 
+			}
+			if (validation === 'confirmPassword'){
+				if (value !== detailsObject["password"].value){
+					errorMessages.push('Passwords do not match')
+					setFormValidity(false)
+				}
 			}
 			if (validation === "allowedFileType"){
 				// find away to get he extension of the selected file 
@@ -171,6 +191,39 @@ const Form = ( { Heading,  configuration, buttonConfig } ) => {
 		})
 	}
 
+	const imageUploader = async (e) => {
+		console.log("This better work")
+		const cloudinary_url = "https://api.cloudinary.com/v1_1/isaaccloud"
+		const preset = "y2pm46hq"
+
+		const fileReceived = e.target.files[0]
+		const formData = new FormData()
+
+		formData.append("image", fileReceived)
+		formData.append("upload_preset", preset)
+
+
+		// get the file (done)
+		fetch( cloudinary_url, {
+			method: "post",
+			headers: {
+				'Content-type': 'application/x-www-form-urlencoded'
+			},
+			body: formData 
+		})
+		.then(response => {
+			console.log(response)
+			// setInputData(e, 7)
+		})
+		.catch(error => {
+			console.log(error)
+		})
+		// send the file to th cloudinary
+		// get the url from the response
+		// save the url and the value in the file input
+		// make sure the the image shows , make the neccessary adjustments for the for the url and saet the url as the source of the image
+	}
+
 	const submitclasses = formValid ? [styles.formSubmit] : [styles.formSubmit, styles.disabled]
 	let updatingObjext = {}
 	// Object.keys(configuration).forEach(configObject => {
@@ -180,9 +233,13 @@ const Form = ( { Heading,  configuration, buttonConfig } ) => {
 	// creating a group of inputs based on the config objects
 	console.log(detailsObject)
 	const inputList = Object.keys(detailsObject).map(key => {
-				console.log("1 input")
-				console.log("Key is", key)
-				console.log(detailsObject[key]) 
+				if(key === "bookImage"){
+					return (
+						<Input name={key} Type={detailsObject[key].elementType} 
+							inputConfig={{...detailsObject[key].elementConfig}} value={detailsObject[key].value} action={imageUploader}
+							errors={detailsObject[key].errorMessages} />		
+					)	
+				}
 				return (<Input name={key} Type={detailsObject[key].elementType} 
 				inputConfig={{...detailsObject[key].elementConfig}} value={detailsObject[key].value} action={setInputData}
 				errors={detailsObject[key].errorMessages} />)})
@@ -191,7 +248,7 @@ const Form = ( { Heading,  configuration, buttonConfig } ) => {
 
 	return ( 
 	 <div className={styles.Form}>
-			<h2 className={styles.formHeading}>{Heading}</h2>
+			<h1 className={styles.formHeading}>{Heading}</h1>
 			<form onSubmit={'we submit the form'}>
 				{inputList}				
 				<input disabled={!formValid} type="submit" className={styles.formSubmit} style={buttonConfig.style} value={buttonConfig.text} />		
