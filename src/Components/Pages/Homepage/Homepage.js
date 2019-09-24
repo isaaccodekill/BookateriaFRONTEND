@@ -4,6 +4,7 @@ import TopHeader from '../../UI/Headers/TopHeader/TopHeader'
 import SubHeader from '../../UI/Headers/SubHeader/SubHeader'
 import Button from '../../UI/Button/Button'
 import { ReactComponent as BookImage } from "../../../assets/images/undraw_books_6rhq.svg"
+import SearchBarButton from '../../UI/SearchBarButton/SearchBarButton'
 
 
 const Homepage = () => {
@@ -16,6 +17,10 @@ const Homepage = () => {
 				<h1>Welcome To Bookateria</h1>
 				<p>Books you crave, Documents you need,<span className={styles.block}>All on the menu</span></p>
 				<Button bigSize color="#fff" backgroundColor="#005BB3" Text="View all books" />
+				<div className={styles.extraSection}>
+					<p>Know exactly what you're looking for ?</p>
+					<SearchBarButton/>
+				</div>
 			</div>
 			<div className={styles.imageBox}>
 				<BookImage/>

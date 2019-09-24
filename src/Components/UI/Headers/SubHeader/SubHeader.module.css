@@ -49,7 +49,7 @@
 .bar.active::before{
 	opacity: 1;
 	transform: translateY(9px) rotate(45deg);
-	background-color:  #fff;
+	background-color: #fff;
 }
 .bar.active::after{
 	opacity: 1;
@@ -57,15 +57,18 @@
 	background-color: #fff;
 }
 
+.colorBar.active{
+	background-color: transparent;
+}
 .colorBar.active::before{
 	opacity: 1;
 	transform: translateY(9px) rotate(45deg);
-	background-color: #001830;
+	background-color: #fff;
 }
 .colorBar.active::after{
 	opacity: 1;
 	transform: translateY(-9px) rotate(-45deg);
-	background-color: #001830;
+	background-color: #fff;
 }
 
 .menu svg, .menu path{

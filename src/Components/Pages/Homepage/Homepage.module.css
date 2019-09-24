@@ -41,6 +41,9 @@
 	width: 100%;
 	height: 90%;
 }
+.extraSection{
+	display: none;
+}
 
 @media (max-width: 600px){
 	.Homepage{
@@ -51,7 +54,7 @@
 	}
 	.textSection{
 		width: 100%;
-		padding-top: 50px;
+		padding-top: 30px;
 		/*align-items: center;*/
 	}
 	.textSection h1{
@@ -59,5 +62,14 @@
 	}
 	.textSection p{
 		margin-bottom: 30px;
+	}
+	.extraSection{
+		display: block;
+		margin-top: 50px;
+	}
+	.extraSection p{
+		font-size: 14px;
+		margin-bottom: 10px;
+		color: #001830;
 	}
 }
