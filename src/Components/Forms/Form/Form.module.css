@@ -14,6 +14,9 @@
 	margin-bottom: 50px;
 	background-color: #fff;	
 }
+.Form form {
+	width: 100%;
+}
 
 .formHeading{
 	font-size: 20px;
@@ -26,7 +29,7 @@
 
 .formSubmit{
 	border: none;
-	margin-top: 3rem;
+	margin-top: 1rem;
 	border-radius: 8px;
 	padding: 13px 30px;
 	width: 100%;

@@ -10,6 +10,7 @@ import ViewBook from './Components/Pages/ViewBook/ViewBook'
 import SignUp from './Components/Pages/SignUp/SignUp'
 import UploadBook from './Components/Pages/UploadBook/UploadBook'
 import Homepage from './Components/Pages/Homepage/Homepage'
+import Login from './Components/Pages/Login/Login'
 
 
 
@@ -23,6 +24,7 @@ class App extends Component {
         <Route path="/book/:id" component={ViewBook} />
         <Route path="/signup" exact component={SignUp} />
         <Route path="/uploadbook" exact component={UploadBook}/>
+        <Route path="/login" exact component={Login}/>
 				<Route component={NotFoundError}/>
 			</Switch>
     	</NavContextProvider>

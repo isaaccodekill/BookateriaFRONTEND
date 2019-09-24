@@ -10,7 +10,7 @@ const Input = ({ name, Type, inputConfig, value, erorrs, action}) => {
 			input = (<React.Fragment>
 						<label htmlFor={name} className={styles.InputGroup}>
 							<p className={styles.Label}>{inputConfig.placeholder}</p>
-							<input id={name} name={name} className={styles.inputNormal} type={inputConfig.textType} value={value} onChange={(e) => action(e)} />
+							<input id={name} name={name} className={styles.inputNormal} type={inputConfig.type} value={value} onChange={(e) => action(e)} />
 						</label>
 					</React.Fragment>)
 			break
