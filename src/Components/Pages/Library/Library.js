@@ -14,7 +14,7 @@ const Library = () => {
 	return (
 		<div className={styles.Homepage}>
 		<TopHeader/>
-		<SubHeader button={true} showButton={true}/>
+		<SubHeader button={true} background showButton={true}/>
 		<div className={styles.content}>
 			<div className={styles.textSection}>
 				<h1>No books found</h1>

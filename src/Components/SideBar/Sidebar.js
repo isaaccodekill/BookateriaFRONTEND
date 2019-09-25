@@ -9,12 +9,12 @@ const SideBar  = () => {
 	let classList = [styles.Sidebar]
 	classList =  navOpen ? [ styles.Sidebar , styles.show ] : [styles.Sidebar]   
 	return (
-		<div  className={classList.join(' ')}>
+		<div  className={classList.join(' ')} onClick={() => setNavOpen(false)}>
 			<Navitem background path="categories" label="Categories/Tags"/>
 			<Navitem background path="books" label="Top Books"/>
 			<Navitem background path="requestbook" label="Request A Document"/>
 			<Navitem background path="uploadbook" label="Upload A Document"/>
-			<Navitem background path="requestbooks" label="Requested Documents"/>
+			<Navitem background path="requests" label="Requested Documents"/>
 			<div className={styles.SearchBarDiv}>
 				<SearchBar/>
 			</div>

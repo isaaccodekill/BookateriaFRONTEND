@@ -18,6 +18,9 @@
 	min-height: 70vh;
 	position: fixed;
 	right: 2%;
+	padding-top: 300px;
+	display: flex;
+	justify-content: center;
 }
 
 .GridContainer{
@@ -25,7 +28,6 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(290px,1fr)); 
 	grid-gap: 10px;
-	grid-row-gap: 25px;
 	grid-auto-rows: 175px;
 }
 

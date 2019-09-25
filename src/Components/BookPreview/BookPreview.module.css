@@ -11,6 +11,10 @@
 	background-color: #fff;
 	cursor: pointer;
 }
+.clickable2{
+	box-shadow: 0 3px 5px rgba(#ccc, 0.7);
+	background-color: #fff;
+}
 .clickable:hover{
 	background-color: #cccccc90;	
 }

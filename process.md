@@ -28,12 +28,14 @@ decide to add that steven phone click event
 <!-- create the login, sign up and sign in pages -->
 <!-- fix the right buttons on all the right pages -->
 <!-- fix all the links frotm the home page and beyond -->
-make the categories page
-make the empty libarary page that the all the tags in the categories page lead to 
+<!-- make the categories page -->
+<!-- make the empty libarary page that the all the tags in the categories page lead to  -->
 make all the available pages responsive (including the form pages)
-make the book details links or make a function that redirects to thier book/id
+<!-- make the book details links or make a function that redirects to thier book/id -->
 make the requested books page
-make the caegories page
+<!-- make the caegories page -->
+make the drag and drop work for the image upload
+make the cloudinary kinni work
 
 
 

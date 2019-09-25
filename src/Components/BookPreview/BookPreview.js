@@ -9,12 +9,15 @@ import { NavLink } from 'react-router-dom'
 import Button from '../UI/Button/Button'
 
 
-const BookPreview = ({ history, imageIncluded, clickable, imageUrl, BookDetails, button }) => {
+const BookPreview = ({ history, imageIncluded, clickable, background, imageUrl, BookDetails, button }) => {
 	const imageStyle = {
 		backgroundImage : `Url(${imageUrl})`
 	}
 	const detailStyle = imageIncluded ? { width: '55%' } : {width: '100%'}
 	let detailClasses = clickable ? [styles.BookDetail, styles.clickable] : [styles.BookDetail]
+	if (background){
+		detailClasses.push(styles.clickable2)
+	}
 	const pathname = `/book/${BookDetails.id}`
 	const content = ( clickable ? <NavLink to={pathname}>
 			<div className={detailClasses.join(' ')}>
