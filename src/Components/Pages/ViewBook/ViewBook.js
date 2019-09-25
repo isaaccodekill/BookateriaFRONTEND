@@ -13,7 +13,7 @@ const ViewBook = () => {
 						<span className={styles.SectionHeader}>
 							Download
 						</span>
-						<BookPreview imageIncluded button={true} clickable={false} BookDetails={{
+						<BookPreview imageIncluded button={true} special clickable={false} BookDetails={{
 								id: 1,
 								title: "The journey of Isaac Bello",
 								author: "Isaac Bello",

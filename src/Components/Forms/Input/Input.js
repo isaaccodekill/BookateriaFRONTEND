@@ -1,9 +1,35 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styles from './Input.module.css'
 import { ReactComponent as AddImage } from '../../../assets/images/Union 44.svg'
 
 
 const Input = ({ name, Type, inputConfig, value, erorrs, action}) => {
+	console.log("ThE render just re-happened")
+	let imageClassList = [styles.imageupload]
+	const [activeImage, setActiveImage] = useState(false)
+	const dragmagic = (e) => {
+		e.preventDefault()
+	}
+	const dropmagic = (e) => {
+		e.preventDefault()	
+		setActiveImage(true)
+			// SHOW LOADER
+		console.log('the drop happend and nothing wierd happened')
+		// show the loading component
+		// make the ajax request to cloudinart
+		// store the url into the state
+		// set the image to the url recieved from cloudinary
+	}
+	useEffect(() => {
+		return () => {
+			console.log("I should figure this out")
+			imageClassList = [styles.imageupload, styles.showBlue]
+			console.log(imageClassList)
+			console.log(activeImage)
+		};
+	}, [activeImage])
+	console.log(activeImage)
+
 	let input = null
 	switch(Type){
 		case("input"):
@@ -26,7 +52,7 @@ const Input = ({ name, Type, inputConfig, value, erorrs, action}) => {
 		case("image"):	
 			input = (
 						<label htmlFor={name}>
-							<div className={styles.imageupload}>
+							<div className={imageClassList.join(' ')} onDragOver={(e) => dragmagic(e)} onDrop={(e) => {dropmagic(e)}}>
 							<input id={name} name={name}  className={styles.imageInput} type="file" accept="image/*"  onChange={(e) => action(e)}/>
 							<div className={styles.dragClickText}>
 								<AddImage/>	 

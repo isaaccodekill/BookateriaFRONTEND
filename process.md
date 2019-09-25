@@ -32,7 +32,7 @@ decide to add that steven phone click event
 <!-- make the empty libarary page that the all the tags in the categories page lead to  -->
 make all the available pages responsive (including the form pages)
 <!-- make the book details links or make a function that redirects to thier book/id -->
-make the requested books page
+<!-- make the requested books page -->
 <!-- make the caegories page -->
 make the drag and drop work for the image upload
 make the cloudinary kinni work

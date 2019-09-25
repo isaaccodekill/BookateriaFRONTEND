@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom'
 import Button from '../UI/Button/Button'
 
 
-const BookPreview = ({ history, imageIncluded, clickable, background, imageUrl, BookDetails, button }) => {
+const BookPreview = ({ history, imageIncluded, special, clickable, background, imageUrl, BookDetails, button }) => {
 	const imageStyle = {
 		backgroundImage : `Url(${imageUrl})`
 	}
@@ -18,12 +18,15 @@ const BookPreview = ({ history, imageIncluded, clickable, background, imageUrl, 
 	if (background){
 		detailClasses.push(styles.clickable2)
 	}
+	if (special){
+		detailClasses.push(styles.specialClass)
+	}
 	const pathname = `/book/${BookDetails.id}`
 	const content = ( clickable ? <NavLink to={pathname}>
 			<div className={detailClasses.join(' ')}>
 				{imageIncluded ? imageUrl ? <div className={styles.image} style={imageStyle}></div> : <div className={styles.image}><DefaultImage/></div> : null  }
 				<div className={styles.details} style={detailStyle}>
-					<h2 className={styles.header}> {BookDetails.title} </h2>
+					<h2 className={styles.header}> {BookDetails.title.length < 30 ? BookDetails.title : BookDetails.title.substring(0, 30) + "..."  } </h2>
 					<div className={styles.smallerDetails}>
 						<Pen/>
 						<span className={styles.text}>{BookDetails.author}</span>
@@ -58,7 +61,7 @@ const BookPreview = ({ history, imageIncluded, clickable, background, imageUrl, 
 					</div>
 					{ button ?
 						<div className={styles.btnContainer}>
-							 <Button Icon={<DownloadLarge/>	} backgroundColor="#00386E" color="#fff" Text="Download"  bigSize={false} />
+							 <Button Icon={<DownloadLarge/>	} backgroundColor="#00386E" color="#fff" Text="Download"  bigSize={true} />
 						</div> : null }
 				</div>
 			</div> )

@@ -28,7 +28,7 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(290px,1fr)); 
 	grid-gap: 10px;
-	grid-auto-rows: 175px;
+	/*grid-auto-rows: 175px;*/
 }
 
 .SectionHeader{
@@ -74,4 +74,12 @@
 }
 .btn{
 	margin-top: 13px;
+}
+@media (max-width: 900px){
+	.PopularDownloads{
+		display: none;
+	}
+	.BookList{
+		width: 100%;
+	}
 }

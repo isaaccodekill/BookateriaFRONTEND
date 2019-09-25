@@ -81,6 +81,10 @@
 	background-color: #2c6d9f;
 	color: #fff;
 }
+.showBlue{
+	background-color: #2c6d9f;
+	color: #fff;
+}
 
 /*action classes for the image upload class*/
 .activeImageHolder{
