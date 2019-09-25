@@ -108,7 +108,7 @@ const SignUp = () => {
 	return (
 		<div className={styles.SignUp}>
 			<TopHeader/>
-			<SubHeader background button={true}/>
+			<SubHeader background showButton={true}/>
 			<Form Heading="Sign Up" configuration={configObject} buttonConfig={buttonConfig}/>
 		</div>
 	)

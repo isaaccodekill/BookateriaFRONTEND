@@ -8,7 +8,7 @@
 
 .clickable{
 	box-shadow: 0 3px 5px rgba(#ccc, 0.7);
-	background-color: #EFF3F6;
+	background-color: #fff;
 	cursor: pointer;
 }
 .clickable:hover{
@@ -24,7 +24,7 @@
 	padding: 20px;
 }
 .image{
-	width: 45%;
+	width: 40%;
 }
 .smallerDetail{
 	display: flex;

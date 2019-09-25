@@ -73,7 +73,7 @@ const RequestPage = () => {
 	return (
 		<div>
 			<TopHeader/>
-			<SubHeader background button={true}/>
+			<SubHeader background showButton={true}/>
 			<Form Heading="Request a book" configuration={configObject} buttonConfig={buttonConfig} />
 		</div>
 	)

@@ -4,12 +4,14 @@ import NavItem from '../../../NavItems/NavItems'
 import Button from '../../Button/Button'
 import { NavContext } from '../../../../Contexts/NavContext'
 import SideBar from '../../../SideBar/Sidebar'
+import { AuthContext } from '../../../../Contexts/AuthContext'
 
 
-const Subheader = ({ background, showButton }) => {
+const Subheader = ({ background, showButton, specialCase }) => {
+	const [authed, setAuth] = useContext(AuthContext)
 	const backgroundColor = background ? 'linear-gradient(to right, rgb(0, 56, 110 ) 70%,  rgb(102, 180, 225))' :  'transparent'
 	let button = null
-	let text = "Sign in"
+	let text = specialCase ? "Sign Up" :  authed ? "Logout" : "Sign In"
 	
 	if (showButton){
 		if (background)

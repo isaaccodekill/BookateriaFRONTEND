@@ -104,7 +104,7 @@ const UploadBook = ( ) => {
 	return (
 		<div>
 			<TopHeader/>
-			<SubHeader background button={true}/>
+			<SubHeader background showButton={true}/>
 			<Form Heading="Upload a book" configuration={configObject} buttonConfig={buttonConfig} />
 		</div>
 	)

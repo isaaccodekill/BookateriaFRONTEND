@@ -8,7 +8,7 @@ const ViewBook = () => {
 	return (
 			<div className={styles.ViewBook}>
 					<TopHeader/>
-					<SubHeader background/>
+					<SubHeader background showButton/>
 					<div className={styles.BookDetails}>
 						<span className={styles.SectionHeader}>
 							Download

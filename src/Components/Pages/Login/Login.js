@@ -48,7 +48,7 @@ const Login = () => {
 	return (
 		<div>
 			<TopHeader/>
-			<SubHeader background button={true}/>
+			<SubHeader background showButton={true} specialCase/>
 			<Form Heading="Sign in" configuration={configObject} buttonConfig={buttonConfig}/>	
 		</div>
 	)

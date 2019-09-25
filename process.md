@@ -23,9 +23,50 @@ decide to add that steven phone click event
 
 
 <!-- final fight -->
-add the font
-create the homepage
-create the login, sign up and sign in pages
+<!-- add the font -->
+<!-- create the homepage -->
+<!-- create the login, sign up and sign in pages -->
+fix the right buttons on all the right pages
+fix all the links frotm the home page and beyond
+make all the available pages responsive (including the form pages)
+make the book details links or make a function that redirects to thier book/id
+make the requested books page
+make the caegories page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 add the drag and drop to the image upload , make sur ethe image upload works
 create the requested books page
 

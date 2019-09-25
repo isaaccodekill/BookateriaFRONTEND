@@ -3,6 +3,7 @@ import NotFoundError from './Components/UI/ErrorPages/NotFoundError'
 import ServerError from './Components/UI/ErrorPages/ServerError'
 import {  Router, Route, Switch  } from 'react-router-dom'
 import NavContextProvider from './Contexts/NavContext'
+import AuthContextPRovider from './Contexts/AuthContext'
 
 // page imports
 import Allbooks from './Components/Pages/AllBooks/AllBooks'
@@ -19,16 +20,18 @@ class App extends Component {
   render() {
     return (
     	<NavContextProvider>
-    		<Switch>
-        <Route path="/" exact component={Homepage}/>
-				<Route path="/books" exact  component={Allbooks} />
-        <Route path="/book/:id" component={ViewBook} />
-        <Route path="/signup" exact component={SignUp} />
-        <Route path="/uploadbook" exact component={UploadBook}/>
-        <Route path="/login" exact component={Login}/>
-        <Route path="/requestbook" exact component={RequestPage}/>
-				<Route component={NotFoundError}/>
-			</Switch>
+        <AuthContextPRovider>
+          <Switch>
+            <Route path="/" exact component={Homepage}/>
+            <Route path="/books" exact  component={Allbooks} />
+            <Route path="/book/:id" component={ViewBook} />
+            <Route path="/signup" exact component={SignUp} />
+            <Route path="/uploadbook" exact component={UploadBook}/>
+            <Route path="/login" exact component={Login}/>
+            <Route path="/requestbook" exact component={RequestPage}/>
+            <Route component={NotFoundError}/>
+          </Switch>
+        </AuthContextPRovider> 
     	</NavContextProvider>
     ) 
   }

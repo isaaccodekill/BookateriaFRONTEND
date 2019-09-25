@@ -11,7 +11,7 @@ const Homepage = () => {
 	return (
 		<div className={styles.Homepage}>
 		<TopHeader/>
-		<SubHeader button={true}/>
+		<SubHeader button={true} showButton={true}/>
 		<div className={styles.content}>
 			<div className={styles.textSection}>
 				<h1>Welcome To Bookateria</h1>
