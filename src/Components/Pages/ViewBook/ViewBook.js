@@ -14,6 +14,7 @@ const ViewBook = () => {
 							Download
 						</span>
 						<BookPreview imageIncluded button={true} clickable={false} BookDetails={{
+								id: 1,
 								title: "The journey of Isaac Bello",
 								author: "Isaac Bello",
 								category: "Biography",	
@@ -29,18 +30,21 @@ const ViewBook = () => {
 						Similar Books
 					</span>
 					<BookPreview imageIncluded clickable BookDetails={{
+						id: 1,
 						title: "The journey of Isaac Bello",
 						author: "Isaac Bello",
 						category: "Biography",	
 						downloads: 999}}
 					 />
 					 <BookPreview imageIncluded clickable BookDetails={{
+					 	id: 1,
 						title: "The journey of Isaac Bello",
 						author: "Isaac Bello",
 						category: "Biography",	
 						downloads: 999}}
 					 />
 					 <BookPreview imageIncluded clickable BookDetails={{
+					 	id: 1,
 						title: "The journey of Isaac Bello",
 						author: "Isaac Bello",
 						category: "Biography",	

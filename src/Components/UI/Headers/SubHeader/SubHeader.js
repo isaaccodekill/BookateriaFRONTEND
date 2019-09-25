@@ -5,6 +5,7 @@ import Button from '../../Button/Button'
 import { NavContext } from '../../../../Contexts/NavContext'
 import SideBar from '../../../SideBar/Sidebar'
 import { AuthContext } from '../../../../Contexts/AuthContext'
+import { NavLink } from 'react-router-dom'
 
 
 const Subheader = ({ background, showButton, specialCase }) => {
@@ -12,6 +13,7 @@ const Subheader = ({ background, showButton, specialCase }) => {
 	const backgroundColor = background ? 'linear-gradient(to right, rgb(0, 56, 110 ) 70%,  rgb(102, 180, 225))' :  'transparent'
 	let button = null
 	let text = specialCase ? "Sign Up" :  authed ? "Logout" : "Sign In"
+	let btnLink = specialCase ? "/signup" : authed ? "/logout" : "/login"
 	
 	if (showButton){
 		if (background)
@@ -39,11 +41,13 @@ const Subheader = ({ background, showButton, specialCase }) => {
 			<SideBar/>
 			<div className={styles.NavItems}>
 				<NavItem background={background} path="categories" label="Categories"/>
-				<NavItem background={background} path="topBooks" label="Top Books"/>
-				<NavItem background={background} path="bookRequest" label="Request A book"/>
+				<NavItem background={background} path="books" label="Top Books"/>
+				<NavItem background={background} path="requestbook" label="Request A book"/>
 			</div>
 			<div className={styles.button}>
-	     		{ button }			
+				<NavLink to={btnLink}>
+		     		{ button }			
+				</NavLink>
 			</div>
 		</div>
 	)

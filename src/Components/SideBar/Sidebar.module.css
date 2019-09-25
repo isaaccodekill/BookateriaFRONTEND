@@ -1,13 +1,13 @@
 .Sidebar{
 	position: absolute;
-	top: -2px;
+	top: 0px;
 	left: 0;
 	background-image: linear-gradient(to bottom, rgb(0, 56, 110 ) 50%,  rgba(102, 180, 225, 0.9));
 	width: 40%;
 	min-height: calc(100vh - 64px);
 	height: 100%;
 	padding: 20px;
-	padding-top: 50px;
+	padding-top: 70px;
 	visibility: hidden;
 	opacity: 0;
 	transition: all 0.3s ease-in;
@@ -34,5 +34,6 @@
 	}
 	.Sidebar{
 		width: 80%;
+		top: -1px;
 	}	
 }

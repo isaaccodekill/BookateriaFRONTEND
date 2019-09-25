@@ -10,11 +10,11 @@ const SideBar  = () => {
 	classList =  navOpen ? [ styles.Sidebar , styles.show ] : [styles.Sidebar]   
 	return (
 		<div  className={classList.join(' ')}>
-			<Navitem background path="/categories" label="Categories/Tags"/>
-			<Navitem background path="/topbooks" label="Top Books"/>
-			<Navitem background path="/requestDocument" label="Request A Document"/>
-			<Navitem background path="/uploadDocument" label="Upload A Document"/>
-			<Navitem background path="/requestDocuments" label="Requested Documents"/>
+			<Navitem background path="categories" label="Categories/Tags"/>
+			<Navitem background path="books" label="Top Books"/>
+			<Navitem background path="requestbook" label="Request A Document"/>
+			<Navitem background path="uploadbook" label="Upload A Document"/>
+			<Navitem background path="requestbooks" label="Requested Documents"/>
 			<div className={styles.SearchBarDiv}>
 				<SearchBar/>
 			</div>

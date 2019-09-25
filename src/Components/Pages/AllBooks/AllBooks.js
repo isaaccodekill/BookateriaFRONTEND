@@ -21,56 +21,67 @@ const Allbooks = () => {
 				</span>
 				<div className={styles.GridContainer}>
 					<BookPreview imageIncluded clickable  BookDetails={{
+											id: 1,	
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />
 					<BookPreview imageIncluded clickable  BookDetails={{
+											id: 1,
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />
 					<BookPreview imageIncluded clickable  BookDetails={{
+											id: 1,
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />	
 					<BookPreview imageIncluded clickable  BookDetails={{
+											id: 1,
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />	
 					<BookPreview imageIncluded clickable  BookDetails={{
+											id: 1,
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />																								
 					<BookPreview imageIncluded clickable  BookDetails={{
+											id: 1,
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />
 					<BookPreview imageIncluded clickable  BookDetails={{
+											id: 1,
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />	
 					<BookPreview imageIncluded clickable  BookDetails={{
+											id: 1,
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />																								
 					<BookPreview imageIncluded clickable  BookDetails={{
+											id: 1,
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />
 					<BookPreview imageIncluded clickable  BookDetails={{
+											id: 1,
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	
 											downloads: 999}} />	
 					<BookPreview imageIncluded clickable  BookDetails={{
+											id: 1,
 											title: "The journey of Isaac Bello",
 											author: "Isaac Bello",
 											category: "Biography",	

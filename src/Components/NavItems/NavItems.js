@@ -5,7 +5,7 @@ import styles from './NavItems.module.css'
 const NavItem = ({ background, path, label  }) => {
 		const color = background ? "#fff" : '#001830'
 		return (
-			<NavLink to={`\${path}`}>
+			<NavLink to={`/${path}`}>
 				<span className={styles.Link} style={{color: color}}>
 					{label}
 				</span>
