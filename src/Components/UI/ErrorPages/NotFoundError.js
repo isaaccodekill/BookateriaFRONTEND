@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Error.module.css'
-import NotFoundImage from '../../../assets/images/Group 45.svg'
+import NotFoundImage from '../../../assets/images/Group 47.svg'
 import {NavLink} from 'react-router-dom'
 
 export default function NotFoundError() {

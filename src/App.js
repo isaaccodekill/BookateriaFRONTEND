@@ -14,6 +14,7 @@ import Homepage from './Components/Pages/Homepage/Homepage'
 import Login from './Components/Pages/Login/Login'
 import RequestPage from './Components/Pages/RequestPage/RequestPage'
 import Category from './Components/Pages/Categories/Categories'
+import Library from './Components/Pages/Library/Library'
 
 class App extends Component {
   render() {
@@ -29,6 +30,7 @@ class App extends Component {
             <Route path="/login" exact component={Login}/>
             <Route path="/requestbook" exact component={RequestPage}/>
             <Route path="/categories" exact component={Category}/>
+            <Route path="/library/:id" exact component={Library} />
             <Route component={NotFoundError}/>
           </Switch>
         </AuthContextPRovider> 

@@ -1,5 +1,5 @@
 import React from 'react'
-import NetworkImage from '../../../assets/images/Group 46.svg'
+import NetworkImage from '../../../assets/images/Group 48.svg'
 import style from './Error.module.css'
 
 
