@@ -3,6 +3,7 @@ import React from 'react'
 import TopHeader from '../../UI/Headers/TopHeader/TopHeader'
 import SubHeader from '../../UI/Headers/SubHeader/SubHeader'
 import Form from '../../Forms/Form/Form'
+import PageLayout from '../../PageLayout/PageLayout'
 
 
 const Login = () => {
@@ -46,11 +47,9 @@ const Login = () => {
 	}
 
 	return (
-		<div>
-			<TopHeader/>
-			<SubHeader background showButton={true} specialCase/>
+		<PageLayout background showButton specialCase>
 			<Form Heading="Sign in" configuration={configObject} buttonConfig={buttonConfig}/>	
-		</div>
+		</PageLayout>
 	)
 }
 

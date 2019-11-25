@@ -6,15 +6,15 @@ import Button from '../../UI/Button/Button'
 import { ReactComponent as ShelfImage } from "../../../assets/images/Group 45.svg"
 import SearchBarButton from '../../UI/SearchBarButton/SearchBarButton'
 import { NavLink } from 'react-router-dom'
+import PageLayout from '../../PageLayout/PageLayout'
 
 const Library = () => {
 	// somehow we are to get books bases on the catgories we picked from the db
 	const [booksExist, setBookExist] = useState(false)
 	const divreturned = ""
 	return (
-		<div className={styles.Homepage}>
-		<TopHeader/>
-		<SubHeader button={true} background showButton={true}/>
+		<PageLayout background button showButton>
+			<div className={styles.Homepage}>
 		<div className={styles.content}>
 			<div className={styles.textSection}>
 				<h1>No books found</h1>
@@ -29,6 +29,7 @@ const Library = () => {
 		</div>
 		</div>
 
+		</PageLayout>
 	)
 }
 

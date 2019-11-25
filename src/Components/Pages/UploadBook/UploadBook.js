@@ -3,6 +3,7 @@ import styles from './UploadBook.module.css'
 import TopHeader from '../../UI/Headers/TopHeader/TopHeader'
 import SubHeader from '../../UI/Headers/SubHeader/SubHeader'
 import Form from '../../Forms/Form/Form'
+import PageLayout from '../../PageLayout/PageLayout'
 
 const UploadBook = ( ) => {
 
@@ -102,11 +103,9 @@ const UploadBook = ( ) => {
 
 
 	return (
-		<div>
-			<TopHeader/>
-			<SubHeader background showButton={true}/>
+		<PageLayout background showButton>
 			<Form Heading="Upload a book" configuration={configObject} buttonConfig={buttonConfig} />
-		</div>
+		</PageLayout>
 	)
 }
 

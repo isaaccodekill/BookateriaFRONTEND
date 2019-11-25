@@ -3,12 +3,12 @@ import styles from './Categories.module.css'
 import TopHeader from '../../UI/Headers/TopHeader/TopHeader'
 import SubHeader from '../../UI/Headers/SubHeader/SubHeader'
 import Tag from '../../UI/Tags/Tags'
+import PageLayout from '../../PageLayout/PageLayout'
 
 const Categories = () => {
 	return (
-		<div className={styles.Categories}>
-			<TopHeader/>
-			<SubHeader background={true} showButton/>
+		<PageLayout background showButton>
+			<div className={styles.Categories}>
 			<div className={styles.Box}>
 				<div className={styles.SectionBox}>
 				<span className={styles.sectionHeader}>
@@ -36,6 +36,7 @@ const Categories = () => {
 			</div>
 			</div>
 		</div>
+		</PageLayout>
 	)
 }
 

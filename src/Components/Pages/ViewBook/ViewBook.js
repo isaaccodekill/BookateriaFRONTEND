@@ -3,12 +3,12 @@ import styles from './ViewBook.module.css'
 import BookPreview from '../../BookPreview/BookPreview'
 import TopHeader from '../../UI/Headers/TopHeader/TopHeader'
 import SubHeader from '../../UI/Headers/SubHeader/SubHeader'
+import PageLayout from '../../PageLayout/PageLayout'
 
 const ViewBook = () => {
 	return (
+		<PageLayout background showButton>
 			<div className={styles.ViewBook}>
-					<TopHeader/>
-					<SubHeader background showButton/>
 					<div className={styles.BookDetails}>
 						<span className={styles.SectionHeader}>
 							Download
@@ -52,6 +52,7 @@ const ViewBook = () => {
 					 />
 				</div>
 			</div>
+		</PageLayout>
 	)
 }
 

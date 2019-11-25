@@ -8,13 +8,13 @@ import { NavLink } from 'react-router-dom'
 import { ReactComponent as Pen } from '../../../assets/images/Union 65.svg'
 import { ReactComponent as Grid } from '../../../assets/images/Union 67.svg'
 import { ReactComponent as Download } from '../../../assets/images/Union 63.svg'
+import PageLayout from '../../PageLayout/PageLayout'
 
 
 const RequestedBook = () => {
 	return (
-		<div className={styles.Allbooks}>
-			<TopHeader/>
-			<SubHeader background={true} showButton/>
+		<PageLayout background showButton>
+			<div className={styles.Allbooks}>
 			<div className={styles.BookList}>
 				<span className={styles.SectionHeader}>
 					Books
@@ -104,6 +104,7 @@ const RequestedBook = () => {
 				</div>
 			</div>
 		</div>
+		</PageLayout>
 	)
 }
 

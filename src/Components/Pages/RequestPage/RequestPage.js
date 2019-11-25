@@ -2,6 +2,7 @@ import React from 'react'
 import TopHeader from '../../UI/Headers/TopHeader/TopHeader'
 import SubHeader from '../../UI/Headers/SubHeader/SubHeader'
 import Form from '../../Forms/Form/Form'
+import PageLayout from '../../PageLayout/PageLayout'
 
 
 const RequestPage = () => {
@@ -71,11 +72,9 @@ const RequestPage = () => {
 
 
 	return (
-		<div>
-			<TopHeader/>
-			<SubHeader background showButton={true}/>
+		<PageLayout background showButton>
 			<Form Heading="Request a book" configuration={configObject} buttonConfig={buttonConfig} />
-		</div>
+		</PageLayout>
 	)
 }
 

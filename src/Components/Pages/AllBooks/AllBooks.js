@@ -7,14 +7,14 @@ import Button from '../../UI/Button/Button'
 import { ReactComponent as Pen } from '../../../assets/images/Union 65.svg'
 import { ReactComponent as Grid } from '../../../assets/images/Union 67.svg'
 import { ReactComponent as Download } from '../../../assets/images/Union 63.svg'
+import PageLayout from '../../PageLayout/PageLayout'
 
 
 
 const Allbooks = () => {
 	return (
-		<div className={styles.Allbooks}>
-			<TopHeader/>
-			<SubHeader background={true} showButton/>
+		<PageLayout background button showButton>
+			<div className={styles.Allbooks}>
 			<div className={styles.BookList}>
 				<span className={styles.SectionHeader}>
 					Books
@@ -115,6 +115,7 @@ const Allbooks = () => {
 				</div>
 			</div>
 		</div>
+		</PageLayout>
 	)
 } 
 
