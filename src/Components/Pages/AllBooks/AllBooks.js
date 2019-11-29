@@ -15,7 +15,7 @@ const Allbooks = () => {
 	return (
 		<PageLayout background button showButton>
 			<div className={styles.Allbooks}>
-			<div className={styles.BookList}>
+			<div className={styles.BookList}> 
 				<span className={styles.SectionHeader}>
 					Books
 				</span>

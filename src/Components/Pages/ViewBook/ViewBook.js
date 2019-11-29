@@ -11,7 +11,7 @@ const ViewBook = () => {
 			<div className={styles.ViewBook}>
 					<div className={styles.BookDetails}>
 						<span className={styles.SectionHeader}>
-							Download
+							Download 
 						</span>
 						<BookPreview imageIncluded button={true} special clickable={false} BookDetails={{
 								id: 1,
@@ -26,7 +26,7 @@ const ViewBook = () => {
 						</p>
 					</div>
 				<div className={styles.similarBooks}>
-					<span className={styles.SectionHeader}>
+					<span className={[styles.SectionHeader, styles.SectionHeaderSecond].join(' ')}>
 						Similar Books
 					</span>
 					<BookPreview imageIncluded clickable BookDetails={{

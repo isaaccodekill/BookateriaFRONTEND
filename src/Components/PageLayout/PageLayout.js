@@ -1,5 +1,5 @@
 import React, {Fragment, useState} from 'react'
-import styles from './PageLayout.css'
+import styles from './PageLayout.module.css'
 import TopHeader from '../UI/Headers/TopHeader/TopHeader'
 import SubHeader from '../UI/Headers/SubHeader/SubHeader'
 

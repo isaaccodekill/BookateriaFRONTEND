@@ -14,4 +14,7 @@ html{
 body{
 	background-color: #EFF3F6;
 	font-family: 'Source Sans Pro', sans-serif;
+	height: 100%;
+	width: 100%;
+	position: relative;
 }

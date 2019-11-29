@@ -17,7 +17,7 @@ const RequestedBook = () => {
 			<div className={styles.Allbooks}>
 			<div className={styles.BookList}>
 				<span className={styles.SectionHeader}>
-					Books
+					Requested Books
 				</span>
 				<div className={styles.GridContainer}>
 					<BookPreview background BookDetails={{

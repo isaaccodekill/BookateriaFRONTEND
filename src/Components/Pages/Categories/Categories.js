@@ -6,7 +6,7 @@ import Tag from '../../UI/Tags/Tags'
 import PageLayout from '../../PageLayout/PageLayout'
 
 const Categories = () => {
-	return (
+	return ( 
 		<PageLayout background showButton>
 			<div className={styles.Categories}>
 			<div className={styles.Box}>

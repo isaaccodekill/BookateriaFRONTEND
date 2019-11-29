@@ -3,15 +3,16 @@
 	min-height: 100vh;
 	width: 100%;
 }
+
 .Box{
 	width: 100%;
 	padding-top: 0px;
 	display: flex;
 	align-items: flex-start;
-	justify-content: flex-start;
+	justify-content: space-between;
 }
 .SectionBox{
-	width: 49%;
+	width: 48%;
 	padding: 20px;
 	padding-top: 0;
 }
@@ -27,8 +28,9 @@
 .categoryContainer{
 	width: 100%;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(max-content, 200px)); 
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
 	grid-gap: 10px;
+	justify-items: stretch;
 }
 
 @media (max-width: 600px){

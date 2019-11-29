@@ -10,7 +10,7 @@ import Button from '../UI/Button/Button'
 
 
 const BookPreview = ({ history, imageIncluded, special, clickable, background, imageUrl, BookDetails, button }) => {
-	const imageStyle = {
+	const imageStyle = { 
 		backgroundImage : `Url(${imageUrl})`
 	}
 	const detailStyle = imageIncluded ? { width: '55%' } : {width: '100%'}

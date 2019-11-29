@@ -7,9 +7,9 @@
 	align-items: flex-start;
 }
 .BookDetails{
-	width: 70%;
+	width: 68%;
 	padding: 20px;
-	padding-top: 0;
+	padding-top: 22px;
 }
 
 .BookDetails h2{
@@ -51,11 +51,39 @@
 	font-size: 13px;
 }
 
-@media (max-width: 900px){
+@media (max-width: 1000px){
 	.similarBooks{
-		display: none;
+		width: 37%;
+	}
+	.BookDetails{
+		width: 63%;
+	}
+}
+
+
+@media (max-width: 850px){
+	.similarBooks{
+		width: 40%;
+	}
+	.BookDetails{
+		width: 60%;
+	}
+}
+
+
+
+@media (max-width: 750px){
+	.ViewBook{
+		flex-direction: column;
+	}
+	.similarBooks{
+		width: 100%;
+		position: relative;
 	}
 	.BookDetails{
 		width: 100%;
+	} 
+	.SectionHeaderSecond{
+		margin-top: 20px;
 	}
 }
