@@ -101,15 +101,14 @@ import Input from '../Input/Input'
 // }
 
 
-const Form = ( { Heading,  configuration, buttonConfig } ) => {
+const Form = ( { Heading,  configuration, buttonConfig, apiConfig } ) => {
 
 	const [detailsObject, setDetailsObject] = useState(configuration)
-	const [formValid, setFormValidity] = useState(true)
+	const [formValid, setFormValidity] = useState(null)
 
 	// the function that make sure each value is set into the object as the values in the target element changes
 	const setInputData = (e, valueParam) => {
 		// get which piece of the state it is and its current value
-		console.log(e.target)
 		const targetData = e.target.name
 		const currentValue = e.target.value
 		const updatedDetailsObject = {...detailsObject}
@@ -191,6 +190,22 @@ const Form = ( { Heading,  configuration, buttonConfig } ) => {
 		})
 	}
 
+	const finalValidations = (detailsObject) => {
+		const formValidity = true
+		const copyObject = { ...detailsObject }
+
+		// get the error messages array of all the keys of the object
+		const keys = Object.keys(copyObject)
+		keys.forEach(key => {
+			copyObject[key].errorMessages = [...detailsObject[key].errorMessages]
+		})
+
+		keys(copyObject).forEach(key => {
+			const formValidity = runValidations('data', null, 'copyObject')
+		})
+
+	}
+
 	const imageUploader = async (e) => {
 		console.log("This better work")
 		const cloudinary_url = "https://api.cloudinary.com/v1_1/isaaccloud"
@@ -231,7 +246,6 @@ const Form = ( { Heading,  configuration, buttonConfig } ) => {
 	// })
 	// useEffect(() => setDetailsObject(configuration), [])
 	// creating a group of inputs based on the config objects
-	console.log(detailsObject)
 	const inputList = Object.keys(detailsObject).map(key => {
 				if(key === "bookImage"){
 					return (
@@ -243,13 +257,18 @@ const Form = ( { Heading,  configuration, buttonConfig } ) => {
 				return (<Input name={key} Type={detailsObject[key].elementType} 
 				inputConfig={{...detailsObject[key].elementConfig}} value={detailsObject[key].value} action={setInputData}
 				errors={detailsObject[key].errorMessages} />)})
+	
+	
+	const submitForm = (e) => {
+		e.preventDefault()
+	}			
 
 
 
 	return ( 
 	 <div className={styles.Form}>
 			<h1 className={styles.formHeading}>{Heading}</h1>
-			<form onSubmit={'we submit the form'}>
+			<form onSubmit={'submitForm'}>
 				{inputList}				
 				<input disabled={!formValid} type="submit" className={styles.formSubmit} style={buttonConfig.style} value={buttonConfig.text} />		
 			</form>

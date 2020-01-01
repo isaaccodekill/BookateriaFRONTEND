@@ -29,7 +29,7 @@ class App extends Component {
             <Route path="/books" exact  component={Allbooks} />
             <Route path="/book/:id" component={ViewBook} />
             <Route path="/signup" exact component={SignUp} />
-            <Route path="/uploadbook" exact component={UploadBook}/>
+            <ProtectedRoute path="/uploadbook" exact component={UploadBook}/>
             <Route path="/login" exact component={Login}/>
             <Route path="/requestbook" exact component={RequestPage}/>
             <Route path="/categories" exact component={Category}/>
