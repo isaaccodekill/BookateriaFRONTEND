@@ -82,6 +82,12 @@
 	position: absolute;
 	right: 30px;
 }
+.loaderBar{
+	position: absolute;
+	left: 0;
+	top: 117px;
+	z-index: 3000;
+}
 
 
 @media (max-width: 700px){

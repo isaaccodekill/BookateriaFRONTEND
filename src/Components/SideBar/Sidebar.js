@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react'
 import Navitem from '../NavItems/NavItems'
 import SearchBar from '../UI/SearchBar/SearchBar'
 import styles from './Sidebar.module.css'
-import { NavContext } from '../../Contexts/NavContext'
 
 const SideBar  = (open, setOpen) => {
 	console.log("The side bar just rendered", open)

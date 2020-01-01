@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import NotFoundError from './Components/UI/ErrorPages/NotFoundError'
 import ServerError from './Components/UI/ErrorPages/ServerError'
-import {  Router, Route, Switch  } from 'react-router-dom'
-import NavContextProvider from './Contexts/NavContext'
+import { Route, Switch  } from 'react-router-dom'
 import AuthContextPRovider from './Contexts/AuthContext'
 
 // page imports
@@ -17,10 +16,13 @@ import Category from './Components/Pages/Categories/Categories'
 import Library from './Components/Pages/Library/Library'
 import RequestedBooks from './Components/Pages/RequestedBooks/RequestedBook'
 
+// componet import
+import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute'
+import Logout from './Components/Pages/Logout/Logout';
+
 class App extends Component {
   render() {
     return (
-    	<NavContextProvider>
         <AuthContextPRovider>
           <Switch>
             <Route path="/" exact component={Homepage}/>
@@ -33,10 +35,10 @@ class App extends Component {
             <Route path="/categories" exact component={Category}/>
             <Route path="/library/:id" exact component={Library} />
             <Route path="/requests" exact component={RequestedBooks} />
+            <Route path="/logout" component={Logout} />
             <Route component={NotFoundError}/>
           </Switch>
         </AuthContextPRovider> 
-    	</NavContextProvider>
     ) 
   }
 }

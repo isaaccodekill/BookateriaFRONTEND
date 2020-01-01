@@ -23,7 +23,17 @@ add a pop up google style for notifications and stuff vague arror messages (erro
 
 
 
-
+open the swagger page on the pc
+authentication context
+protected routes components
+protect the protected routes and add authntication to auth dependedent UI
+initilaize redux
+write the reducers
+write the action creators
+write the fetch helper
+do the login and sign up routes
+do the get books route
+do the upload book route.
 
 
 

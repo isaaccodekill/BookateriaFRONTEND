@@ -9,7 +9,6 @@ html{
 }
 * > a {
   text-decoration: none;
-  color: inherit;
 }
 body{
 	background-color: #EFF3F6;
@@ -18,3 +17,4 @@ body{
 	width: 100%;
 	position: relative;
 }
+

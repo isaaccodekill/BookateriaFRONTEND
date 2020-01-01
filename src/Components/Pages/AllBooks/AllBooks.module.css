@@ -1,6 +1,7 @@
+
 .Allbooks{
-	height: 100%;
-	min-height: 100vh;
+	padding-top: 120px;
+	height: 100vh;
 	width: 100%;
 	display: flex;
 	align-items: flex-start;
@@ -8,9 +9,13 @@
 }
 
 .BookList{
-	width: 73%;
+	width: 75%;
 	padding: 20px;
 	padding-top: 0;
+	position: relative;
+	height: calc(100vh - 120px);
+	overflow: scroll;
+	overflow-x: hidden;
 }
 .PopularDownloads{
 	width: 25%;
@@ -20,6 +25,8 @@
 	right: 0;
 	overflow: scroll;
 	padding: 20px;
+	border-left: 1px solid #00386E30;
+	overflow-x: hidden;
 }
 
 .GridContainer{
@@ -34,9 +41,9 @@
 .SectionHeader{
 	font-size: 13px;
 	color: #001830;
-	margin-top: 130px;
 	margin-bottom: 10px;
 	display: block;
+	font-weight: bold;
 }
 
 .BookList .SectionHeader{
@@ -44,7 +51,7 @@
 }
 .LargeImage{
 	width: 100%;
-	background-color: red;
+	background-color: #ccc;
 	height: 270px;
 	border-radius: 8px;
 	margin-bottom: 15px;
@@ -79,6 +86,83 @@
 .btn{
 	margin-top: 13px;
 }
+
+.paginateHolder {
+	width: 100%;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 30px 0;
+
+}
+
+.paginateContainer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	list-style: none;
+}
+.paginateContainer > li{
+	height: 45px;
+	color: #001830;
+	background-color: #fff;
+	padding: 10px 20px;
+	border: 1px solid #00183010;
+	transition: all 0.5s ease;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.paginateContainer > li > a {
+	position: absolute;
+	outline: none;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 12px;
+}
+
+.paginateContainer > li:hover{
+	color: #fff;
+	background-color: #00386E;
+}
+
+.paginateContainer > li:first-child {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	width: 100px;
+	background-color: #00386E;
+	color: #fff;
+}
+
+.paginateContainer > li:last-child {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	width: 100px;
+	background-color: #00386E;
+	color: #fff;
+}
+
+.paginateContainer > li.paginatePageActive{
+	color: #fff;
+	background-color: #00386E;
+	border: 1px solid #ffffff50;
+	border-bottom: 0;
+	border-top: none;
+}
+
+
+
+
+
+
+
 
 @media (max-width: 1100px){
 	.PopularDownloads{
