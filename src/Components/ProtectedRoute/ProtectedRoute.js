@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import { AuthContext } from '../../Contexts/AuthContext'
+import { useSelector } from 'react-redux'
 
 const ProtectedRoute = ({ component:Component, path, ...rest }) => {
-    const [authState] = useContext(AuthContext)
+    const authState = useSelector(state => state.auth)
     return (
         <Route path={path} component={() => authState ? <Component/> : <Redirect to="/login"/> } />
     )

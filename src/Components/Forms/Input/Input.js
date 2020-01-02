@@ -3,8 +3,7 @@ import styles from './Input.module.css'
 import { ReactComponent as AddImage } from '../../../assets/images/Union 44.svg'
 
 
-const Input = ({ name, Type, inputConfig, value, erorrs, action}) => {
-	console.log("ThE render just re-happened")
+const Input = ({ name, Type, inputConfig, value, errors, action}) => {
 	let imageClassList = [styles.imageupload]
 	const [activeImage, setActiveImage] = useState(false)
 	const dragmagic = (e) => {
@@ -14,30 +13,28 @@ const Input = ({ name, Type, inputConfig, value, erorrs, action}) => {
 		e.preventDefault()	
 		setActiveImage(true)
 			// SHOW LOADER
-		console.log('the drop happend and nothing wierd happened')
 		// show the loading component
 		// make the ajax request to cloudinart
 		// store the url into the state
 		// set the image to the url recieved from cloudinary
 	}
-	useEffect(() => {
-		return () => {
-			console.log("I should figure this out")
-			imageClassList = [styles.imageupload, styles.showBlue]
-			console.log(imageClassList)
-			console.log(activeImage)
-		};
-	}, [activeImage])
-	console.log(activeImage)
+	// useEffect(() => {
+	// 	return () => {
+	// 		console.log("I should figure this out")
+	// 		imageClassList = [styles.imageupload, styles.showBlue]
+	// 		console.log(imageClassList)
+	// 		console.log(activeImage)
+	// 	};
+	// }, [activeImage])
+	// console.log(activeImage)
 
 	let input = null
 	switch(Type){
 		case("input"):
 			input = (<React.Fragment>
-						<label htmlFor={name} className={styles.InputGroup}>
-							<p className={styles.Label}>{inputConfig.placeholder}</p>
-							<input id={name} name={name} className={styles.inputNormal} type={inputConfig.type} value={value} onChange={(e) => action(e)} />
-						</label>
+						<p className={styles.Label}>{inputConfig.placeholder}</p>
+						<input id={name} name={name} className={styles.inputNormal} type={inputConfig.type} value={value} onChange={(e) => action(e)} />
+
 					</React.Fragment>)
 			break
 		case("textArea"):
@@ -82,9 +79,9 @@ const Input = ({ name, Type, inputConfig, value, erorrs, action}) => {
 	return (
 		<div className={styles.InputGroup}>
 			{input}
-			{erorrs ? <p className={styles.errorMessage}>
-			 			{erorrs[0]} 
-			</p> : null }
+			{errors.length > 0 ? <p className={styles.errorMessage}>
+			 			{errors[0]} 
+			</p> : <p className={styles.null}>no errors</p> }
 		</div>
 	)
 }

@@ -1,15 +1,15 @@
-import React, { useContext, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import styles from './SubHeader.module.css'
 import NavItem from '../../../NavItems/NavItems'
 import Button from '../../Button/Button'
 import SideBar from '../../../SideBar/Sidebar'
-import { AuthContext } from '../../../../Contexts/AuthContext'
 import { NavLink } from 'react-router-dom'
 import LoadingBar from 'react-redux-loading-bar'
+import { useSelector } from 'react-redux'
 
 
 const Subheader = ({navOpen, setNavOpen, background, showButton, specialCase}) => {
-	const [authed] = useContext(AuthContext)
+	const authed = useSelector(state => state.auth)
 	const backgroundColor = background ? 'linear-gradient(to right, rgb(0, 56, 110 ) 70%,  rgb(102, 180, 225))' :  'transparent'
 	let button = null
 	let text = specialCase ? "Sign Up" :  authed ? "Logout" : "Sign In"

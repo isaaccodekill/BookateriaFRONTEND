@@ -1,6 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styles from './Form.module.css'
 import Input from '../Input/Input'
+import { useDispatch } from 'react-redux'
+
+
+
+
+const Token = localStorage.getItem("BookateriaAuthToken")
 
 // this is an explanation on how the cofigData prop works in this form
 // so the configuration prop should be an object, each of which has a unique key which will later become the name attribute on the input element it self
@@ -102,55 +108,19 @@ import Input from '../Input/Input'
 
 
 const Form = ( { Heading,  configuration, buttonConfig, apiConfig } ) => {
-
 	const [detailsObject, setDetailsObject] = useState(configuration)
-	const [formValid, setFormValidity] = useState(null)
-
+	const [formValid, setFormValidity] = useState(true)
+	const dispatch = useDispatch()
 	// the function that make sure each value is set into the object as the values in the target element changes
-	const setInputData = (e, valueParam) => {
-		// get which piece of the state it is and its current value
-		const targetData = e.target.name
-		const currentValue = e.target.value
-		const updatedDetailsObject = {...detailsObject}
-		const selectedPiece = {...updatedDetailsObject[targetData]}
 
-		// properly spreading the innen config objects  and arrays 
-		selectedPiece.elementConfig = {...updatedDetailsObject[targetData].elementConfig}
-		selectedPiece.validations = { ...updatedDetailsObject[targetData].validations }
-		selectedPiece.errorMessages = [...updatedDetailsObject[targetData].errorMessages] 
-
-		// set the value 
-		if (valueParam){
-			if (selectedPiece.elementType === "file"){
-				console.log(e.target.files[0])
-				selectedPiece.value = valueParam	
-			}else{	
-				selectedPiece.value = valueParam
-			}	
-		} else {
-			if (selectedPiece.elementType === "file"){
-				console.log(e.target.files[0])
-				selectedPiece.value = e.target.files[0]	
-			}else{	
-				selectedPiece.value = currentValue
-			}
-		}
-
-		updatedDetailsObject[targetData] = {...selectedPiece}
-		setDetailsObject(updatedDetailsObject)
-
-		// now that we have successfully updated the data we shall proceed to run the validations for the whole form
-		// runValidations(targetData) 
-	}
-
-	const runValidations = (data) => {
+	const runValidations = (data, startObj) => {
 		// all this function is meant to do is to check the values of the data object and make sure they are up to standards of the validation props set
 		// the data argument is the piece of the state we shall run validations on
-		
-		const updatedobject = {...detailsObject}
-		const selectedPiece = { ...detailsObject[data]}
+		let validity = true
+		const updatedobject = {...startObj}
+		const selectedPiece = { ...startObj[data]}
 		const validations = {...selectedPiece.validations}
-		const errorMessages = [...selectedPiece.errorMessages]
+		const errorMessages = []
 		const value = selectedPiece.value
 
 		// the list of the validations
@@ -158,56 +128,95 @@ const Form = ( { Heading,  configuration, buttonConfig, apiConfig } ) => {
 			if (validation === 'required'){
 				if (value === ""){
 					errorMessages.push("please fill this field") 
-					setFormValidity(false)
+					// setFormValidity(false)
+					validity  = false
 				}
 			}
 			if (validation === 'maxLength'){
 				if (value.length > validations.maxLength){
 					errorMessages.push(`This field must contain less than ${validations.maxLength} characters`) 
-					setFormValidity(false)
+					// setFormValidity(false)
+					validity  = false
+
 				} 
 			}
 			if (validation === 'minLength'){
 				if (value.length < validations.minLength){
 					errorMessages.push(`This field must contain more than ${validations.minLength} characters`)
-					setFormValidity(false)
+					// setFormValidity(false)
+					validity  = false
+
 				} 
 			}
 			if (validation === 'confirmPassword'){
 				if (value !== detailsObject["password"].value){
 					errorMessages.push('Passwords do not match')
-					setFormValidity(false)
+					// setFormValidity(false)
+					validity  = false
+
 				}
 			}
 			if (validation === "allowedFileType"){
 				// find away to get he extension of the selected file 
 			}
-	 		
-			// setting the new array of error message into the selected piece of state
-			selectedPiece.errorMessages = [...errorMessages]
-			updatedobject[data] = {...selectedPiece}
-			setDetailsObject(updatedobject)
 		})
+		// setting the new array of error message into the selected piece of state
+		selectedPiece.errorMessages = [...errorMessages]
+		updatedobject[data] = {...selectedPiece}
+		setDetailsObject(updatedobject)
+		return validity
 	}
 
-	const finalValidations = (detailsObject) => {
-		const formValidity = true
-		const copyObject = { ...detailsObject }
+	const finalValidations = () => {
+		let formValidity = true
 
-		// get the error messages array of all the keys of the object
-		const keys = Object.keys(copyObject)
-		keys.forEach(key => {
-			copyObject[key].errorMessages = [...detailsObject[key].errorMessages]
-		})
+		const keys = Object.keys(detailsObject)
+		for(let i = 0; i < keys.length; i++){
+			formValidity = runValidations(keys[i], detailsObject)
+			if (!formValidity){
+				break
+			}
+		}
+		return formValidity
+	}
 
-		keys(copyObject).forEach(key => {
-			const formValidity = runValidations('data', null, 'copyObject')
-		})
+	const setInputData = (e, valueParam) => {
+		// get which piece of the state it is and its current value
+		const targetData = e.target.name
+		const currentValue = e.target.value
+		const updatedDetailsObject = {...detailsObject}
+		const selectedPiece = {...updatedDetailsObject[targetData]}
 
+
+		// properly spreading the inner config objects  and arrays 
+		selectedPiece.elementConfig = {...updatedDetailsObject[targetData].elementConfig}
+		selectedPiece.validations = { ...updatedDetailsObject[targetData].validations }
+		selectedPiece.errorMessages = [...updatedDetailsObject[targetData].errorMessages] 
+
+		// set the value 
+		if (valueParam){
+			if (selectedPiece.elementType === "file"){
+				selectedPiece.value = valueParam	
+			}else{	
+				selectedPiece.value = valueParam
+			}	
+		} else {
+			if (selectedPiece.elementType === "file"){
+				selectedPiece.value = e.target.files[0]	
+			}else{	
+				selectedPiece.value = currentValue
+			}
+		}
+		updatedDetailsObject[targetData] = {...selectedPiece}
+		// setDetailsObject(updatedDetailsObject)
+		runValidations(targetData, updatedDetailsObject)
+
+
+		// now that we have successfully updated the data we shall proceed to run the validations for the whole form
+		// runValidations(targetData) 
 	}
 
 	const imageUploader = async (e) => {
-		console.log("This better work")
 		const cloudinary_url = "https://api.cloudinary.com/v1_1/isaaccloud"
 		const preset = "y2pm46hq"
 
@@ -227,11 +236,9 @@ const Form = ( { Heading,  configuration, buttonConfig, apiConfig } ) => {
 			body: formData 
 		})
 		.then(response => {
-			console.log(response)
 			// setInputData(e, 7)
 		})
 		.catch(error => {
-			console.log(error)
 		})
 		// send the file to th cloudinary
 		// get the url from the response
@@ -261,14 +268,48 @@ const Form = ( { Heading,  configuration, buttonConfig, apiConfig } ) => {
 	
 	const submitForm = (e) => {
 		e.preventDefault()
-	}			
+		const me = finalValidations()
+		if(me === true){
+			let requiredObject = Object.keys(detailsObject).reduce((acc, current) => {
+				if(current !== "confirmPassword"){
+					acc[current] = detailsObject[current].value
+				}
+				return acc
+			}, {})
+			submitHelper(apiConfig, requiredObject)			
+		}
+	}
+	
+	async function submitHelper(config, body){
+		try {
+			let param = {}
+			if(config.auth){
+				param = {
+					method: config.method,
+					body,
+					'Authentication': `Bearer ${Token}`,
+					'Content-type': 'application/json'
+				}
+			}
+
+			if(config.exceptionContent){
+				param.delete("Content-type")
+			}
+
+			let response = await fetch(config.url, param)
+			dispatch(config.action(response.data[config.target]))
+		} catch (error) {
+
+		}
+		
+	}
 
 
 
 	return ( 
 	 <div className={styles.Form}>
 			<h1 className={styles.formHeading}>{Heading}</h1>
-			<form onSubmit={'submitForm'}>
+			<form onSubmit={submitForm}>
 				{inputList}				
 				<input disabled={!formValid} type="submit" className={styles.formSubmit} style={buttonConfig.style} value={buttonConfig.text} />		
 			</form>

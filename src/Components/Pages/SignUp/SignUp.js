@@ -4,38 +4,11 @@ import TopHeader from '../../UI/Headers/TopHeader/TopHeader'
 import SubHeader from '../../UI/Headers/SubHeader/SubHeader'
 import Form from '../../Forms/Form/Form'
 import PageLayout from '../../PageLayout/PageLayout'
+import { authActions } from '../../../Actions/index'
 
 const SignUp = () => {
 
-	const configObject = {
-		firstname: {
-			elementType: "input",
-			elementConfig: {
-				placeholder: "First Name",
-				type: 'text'
-			},
-			value: "",
-			valid: true,
-			validations: {
-				required: true,
-				maxCharLength: 256
-			},
-			errorMessages: []
-		},
-		lastname: {
-			elementType: "input",
-			elementConfig: {
-				placeholder: "Last Name",
-				type: 'text'
-			},
-			value: "",
-			valid: true,
-			validations: {
-				required: true,
-				maxCharLength: 256
-			},
-			errorMessages: []
-		},
+	const configObject = {	
 		email: {
 			elementType: "input",
 			elementConfig: {
@@ -105,11 +78,17 @@ const SignUp = () => {
 		}
 	}
 
+	const apiConfig = {
+		url: "https://api.bookateria.net/users/register/",
+		action: authActions.login,
+		target: "Token" 
+	}
+
 
 	return (
 		<PageLayout background showButton>
 			<div className={styles.SignUp}>
-				<Form Heading="Sign Up" configuration={configObject} buttonConfig={buttonConfig}/>
+				<Form Heading="Sign Up" configuration={configObject} buttonConfig={buttonConfig} apiConfig={apiConfig}/>
 			</div>
 		</PageLayout>
 	)

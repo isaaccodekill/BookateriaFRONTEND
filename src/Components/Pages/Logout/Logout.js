@@ -1,14 +1,18 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import { Redirect, withRouter } from 'react-router-dom'
-import { AuthContext } from '../../../Contexts/AuthContext'
+import { useSelector, useDispatch} from 'react-redux'
+import {authActions} from '../../../Actions'
 
 
 const Logout = ({history}) => {
-    const [ authState ,  authenticate, logout] = useContext(AuthContext)
+
+    const authState = useSelector(state => state.auth)
+    const dispatch = useDispatch()
+
     if (!authState){
         history.goBack()
     }else{
-        logout()
+        dispatch(authActions.logout)
     }
     return (
         <Redirect to="/" />
