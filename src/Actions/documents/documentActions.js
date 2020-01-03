@@ -31,7 +31,7 @@ const createDocument = (document) => ({
     
 })
 
-const selectedDocument = (document) => ({
+export const selectDocument = (document) => ({
     type: documentActions.SELECT_DOCUMENT,
     payload: document
 })
@@ -47,15 +47,15 @@ export const getDocumentsAsync = (pageNumber) => async (dispatch) => {
     try {
         dispatch(startDocumentAction())
         dispatch(showLoading())
-        console.log("the thing loader should start showing")
         const result = await axios.get(`${BASE_URL}documents/all/?page=${pageNumber}`)
         dispatch(hideLoading())
+        dispatch(documentActionSuccess("succesfully gotten the documents"))
         dispatch(getAllDocuments(result.data.results))
         dispatch(setCount(result.data.count))
     }
     catch (error){
-        console.log(error)
         dispatch(hideLoading())
+        dispatch(documentActionFailure("failed to get the rrquired documents"))
     }
 
     
@@ -67,6 +67,16 @@ export const createDocumentAsync = (docDetails) => (dispatch) => {
     // post documents
 }
 
-export const selectedDocumentAsync = (bookID) => (dispatch) => {
-    dispatch(startDocumentAction())
+export const selectedDocumentAsync = (bookID) => async (dispatch) => {
+    try {
+        dispatch(startDocumentAction())
+        dispatch(showLoading())
+        const result = await axios.get(`${BASE_URL}documents/all/${bookID}`)
+        dispatch(hideLoading())
+        dispatch(documentActionSuccess("gotten the required document"))
+        dispatch(selectDocument(result.data))
+    } catch (error) {
+        dispatch(documentActionFailure("Failed to get the required document"))
+        dispatch(hideLoading())
+    }
 }

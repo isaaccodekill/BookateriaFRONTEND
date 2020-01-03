@@ -35,6 +35,7 @@
 	grid-template-columns: repeat(auto-fit, minmax(290px,1fr)); 
 	grid-gap: 20px;
 	grid-row-gap: 20px;
+	min-height: 50vh;
 	/*grid-auto-rows: 175px;*/
 }
 
@@ -62,7 +63,7 @@
 	color: #001830;
 	margin-bottom: 10px;
 }
-.smallerDetail{
+.smallerDetails{
 	display: flex;
 	align-items: center;
 	margin-bottom: 5px;
@@ -82,6 +83,7 @@
 .text{
 	color: #667A8E;
 	font-size: 13px;
+	width: 100%;
 }
 .btn{
 	margin-top: 13px;

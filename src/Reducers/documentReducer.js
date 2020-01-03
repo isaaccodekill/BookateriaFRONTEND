@@ -3,6 +3,7 @@ const initialStore = {
     loading: false,
     count: 0,
     documents: [],
+    selectedDocument: null,
     success: {
         status: false,
         message: ''
@@ -56,6 +57,11 @@ export default function documentReducer(state = initialStore, action){
                 ...state,
                 count: action.payload
             }
+        case(documentActions.SELECT_DOCUMENT):
+            return {
+                ...state,
+                selectedDocument: action.payload
+            }    
         default:
             return state
     }

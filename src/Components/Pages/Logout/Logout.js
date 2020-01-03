@@ -6,7 +6,7 @@ import {authActions} from '../../../Actions'
 
 const Logout = ({history}) => {
 
-    const authState = useSelector(state => state.auth)
+    const {authState} = useSelector(state => state.auth)
     const dispatch = useDispatch()
 
     if (!authState){

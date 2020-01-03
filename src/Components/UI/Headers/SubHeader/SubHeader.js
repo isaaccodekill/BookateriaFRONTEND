@@ -9,11 +9,11 @@ import { useSelector } from 'react-redux'
 
 
 const Subheader = ({navOpen, setNavOpen, background, showButton, specialCase}) => {
-	const authed = useSelector(state => state.auth)
+	const {authState} = useSelector(state => state.auth)
 	const backgroundColor = background ? 'linear-gradient(to right, rgb(0, 56, 110 ) 70%,  rgb(102, 180, 225))' :  'transparent'
 	let button = null
-	let text = specialCase ? "Sign Up" :  authed ? "Logout" : "Sign In"
-	let btnLink = specialCase ? "/signup" : authed ? "/logout" : "/login"
+	let text = specialCase ? "Sign Up" :  authState ? "Logout" : "Sign In"
+	let btnLink = specialCase ? "/signup" : authState ? "/logout" : "/login"
 	
 	if (showButton){
 		if (background)

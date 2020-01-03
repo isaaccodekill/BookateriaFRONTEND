@@ -1,9 +1,7 @@
 import React from 'react'
-// import styles from ''
-import TopHeader from '../../UI/Headers/TopHeader/TopHeader'
-import SubHeader from '../../UI/Headers/SubHeader/SubHeader'
 import Form from '../../Forms/Form/Form'
 import PageLayout from '../../PageLayout/PageLayout'
+import { authActions } from '../../../Actions'
 
 
 const Login = () => {
@@ -22,7 +20,7 @@ const Login = () => {
 			},
 			errorMessages: []
 		},
-		passwordr: {
+		password: {
 			elementType: "input",
 			elementConfig: {
 				placeholder: "Password",
@@ -44,6 +42,13 @@ const Login = () => {
 			backgroundColor: "#00386e",
 			color: "#fff"
 		}
+	}
+
+	const apiConfig = {
+		url: "https://api.bookateria.net/users/login/",
+		target: "Token",
+		watch: 'status',
+		expectedResult: true
 	}
 
 	return (

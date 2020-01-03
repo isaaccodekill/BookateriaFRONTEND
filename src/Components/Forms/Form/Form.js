@@ -281,6 +281,7 @@ const Form = ( { Heading,  configuration, buttonConfig, apiConfig } ) => {
 	}
 	
 	async function submitHelper(config, body){
+		// add some extra functionality to catch normal failures
 		try {
 			let param = {}
 			if(config.auth){

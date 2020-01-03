@@ -11,6 +11,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { documentActions } from '../../../Actions'
 import ReactPaginate from 'react-paginate'
 import { ReactComponent as Next } from '../../../assets/images/next.svg'
+import BookPreviewLoader from '../../UI/Loaders/BookSkeleton/BookSkeleton'
+import Skeleton from 'react-loading-skeleton'
 
 
 
@@ -31,10 +33,10 @@ const Allbooks = () => {
 	useEffect(() => {
 		if(documentState.documents.length === 0){
 			dispatch(documentActions.getDocumentsAsync(1))
-			console.log(loadingState)
 		}
 	}, [])
 
+	
 	const fetchRelevantDocs = (param) => {
 		console.log(loadingState)
 		dispatch(documentActions.getDocumentsAsync(param.selected + 1))
@@ -49,14 +51,16 @@ const Allbooks = () => {
 					Books
 				</span>
 				<div className={styles.GridContainer}>
-					{documentState.documents.map(doc => (
+					{documentState.loading ? ( Array(10).fill().map(doc => (<BookPreviewLoader imageIncluded background />))) 
+					: (documentState.documents.map(doc => (
 						<BookPreview imageIncluded clickable   BookDetails={{
 							id: doc.id,	
 							title: doc.title,
 							author: doc.author,
 							tags: doc.tags,
 							downloads: doc.downloads}} />
-					))}
+					))) }
+					 
 					 {/* <AnimatedBooks style={bookStyleProps} imageIncluded clickable  BookDetails={{
 						id: 0,	
 						title: "React spring test",
@@ -65,77 +69,7 @@ const Allbooks = () => {
 						downloads: 1
 					}}>
 					</AnimatedBooks>
-					<BookPreview imageIncluded clickable  BookDetails={{
-											id: 1,	
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />
-					<BookPreview imageIncluded clickable  BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />
-					<BookPreview imageIncluded clickable  BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />	
-					<BookPreview imageIncluded clickable  BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />	
-					<BookPreview imageIncluded clickable  BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />																								
-					<BookPreview imageIncluded clickable  BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />
-					<BookPreview imageIncluded clickable  BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />	
-					<BookPreview imageIncluded clickable  BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />																								
-					<BookPreview imageIncluded clickable  BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />
-					<BookPreview imageIncluded clickable  BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />	
-					<BookPreview imageIncluded clickable  BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />																								
-					<BookPreview imageIncluded clickable  BookDetails={{
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />																			  */}
+																								  */}
 				</div>
 				<div className={styles.paginateHolder}>
 					<ReactPaginate
@@ -155,21 +89,21 @@ const Allbooks = () => {
 				<span className={styles.SectionHeader}>
 					Popular Downloads
 				</span>
-					<div className={styles.LargeImage}></div>
-					<h2 className={styles.Subheading}> The popular download </h2>
+					<div className={styles.LargeImage}> { documentState.loading ? <Skeleton height="100%"/> : null } </div>
+					<h2 className={styles.Subheading}> { documentState.loading ? <Skeleton/> :  "The popular download" } </h2>
 					<div className={styles.smallerDetails}>
 					<Pen/>
-					<span className={styles.text}>author</span>
+					<span className={styles.text}> { documentState.loading ? <Skeleton/> : "Isaac Bello" }  </span>
 				</div>
 				<div className={styles.smallerDetails}>
 					<Grid/>
-					<span  className={styles.text}>Biography</span>
+					<span  className={styles.text}>{ documentState.loading ? <Skeleton/> : "Biography" }</span>
 				</div><div className={styles.smallerDetails}>
 					<Download/>
-					<span  className={styles.text}>999</span>
+					<span  className={styles.text}>{ documentState.loading ? <Skeleton/> : "999" }</span>
 				</div>
 				<div className={styles.btn}>
-					<Button backgroundColor="#001830" color="#fff" bigSize={false} Text="Download" />
+					{ documentState.loading ? <Skeleton height="45px" width="50%"/> : <Button backgroundColor="#001830" color="#fff" bigSize={false} Text="Download" />}
 				</div>
 			</div>
 		</div>

@@ -1,15 +1,19 @@
 .ViewBook {
+	padding-top: 120px;
+	height: 100vh;
 	width: 100%;
-	min-height: 100vh;
-	height: 100%;
 	display: flex;
-	justify-content: space-between;
 	align-items: flex-start;
+	justify-content: flex-start;
 }
 .BookDetails{
-	width: 68%;
+	width: 70%;
 	padding: 20px;
-	padding-top: 22px;
+	padding-top: 20px;
+	position: relative;
+	height: calc(100vh - 120px);
+	overflow: scroll;
+	overflow-x: hidden;
 }
 
 .BookDetails h2{
@@ -17,12 +21,14 @@
 }
 .similarBooks{
 	width: 30%;
-	height: 100%;
+	height: 100%; 
 	min-height: 70vh;
 	position: fixed;
 	right: 0;
 	overflow: scroll;
 	padding: 20px;
+	border-left: 1px solid #00386E30;
+	overflow-x: hidden;
 }
 .similarBooks > div {
 	/*height: 140px;*/
@@ -37,13 +43,12 @@
 .SectionHeader{
 	font-size: 13px;
 	color: #001830;
-	margin-top: 125px;
 	margin-bottom: 10px;
 	display: block;
-	padding-left: 10px;
+	font-weight: bold;
 }
 .bookdecription{
-	font-size: 15px;
+	font-size: 17px;
 	padding: 10px;
 }
 .headerSmall{
@@ -54,7 +59,7 @@
 @media (max-width: 1000px){
 	.similarBooks{
 		width: 37%;
-	}
+	} 
 	.BookDetails{
 		width: 63%;
 	}

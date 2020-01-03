@@ -1,0 +1,79 @@
+.BookDetail{
+	border-radius: 8px;
+	width: 100%;
+	padding: 10px;
+	display: flex;
+	transition: all 0.3s ease-in;
+	/*margin-bottom: 20px;*/
+}
+.clickable{
+	box-shadow: 0 3px 5px rgba(#ccc, 0.7);
+	background-color: #fff;
+	cursor: pointer;
+	height: 200px;
+}
+.clickable2{
+	box-shadow: 0 3px 5px rgba(#ccc, 0.7);
+	background-color: #fff;
+	height: 200px;
+}
+.clickable:hover{
+	background-color: #cccccc90;	
+}
+
+.header{
+	color: #37536E;
+	font-size: 20px;
+    margin-bottom: 15px;
+}
+.details{
+	padding: 20px;
+}
+
+
+.image{
+    width: 45%;
+    height: 100%;
+}
+
+.specialClass .image{
+	height: 300px;
+	width: 55%;
+}
+
+.smallerDetails{
+	display: flex;
+	align-items: center;
+	margin-bottom: 7px;
+}
+.smallerDetails svg{
+	width: 15px;
+	height: 15px;
+	color: #667A8E;
+    margin-right: 25px;
+    display: inline-block;
+}
+
+.text{
+	color: #667A8E;
+    font-size: 13px;
+    line-height: 2;
+    width: 100%;
+}
+.btnContainer{
+	margin-top: 30px;
+	width: 150px;
+}
+@media (max-width: 500px){	
+	.specialClass{
+		display: flex;
+		flex-direction: column;
+	}
+	.specialClass .image{
+		width: 100%;
+		height: 250px;
+	}
+	.specialClass .details{
+		width: 100% !important;
+	}
+}
