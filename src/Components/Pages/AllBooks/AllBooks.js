@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './AllBooks.module.css'
 import BookPreview from '../../BookPreview/BookPreview'
 import Button from '../../UI/Button/Button'
@@ -10,7 +10,6 @@ import { useSpring, animated } from 'react-spring'
 import { useSelector, useDispatch } from 'react-redux'
 import { documentActions } from '../../../Actions'
 import ReactPaginate from 'react-paginate'
-import { ReactComponent as Next } from '../../../assets/images/next.svg'
 import BookPreviewLoader from '../../UI/Loaders/BookSkeleton/BookSkeleton'
 import Skeleton from 'react-loading-skeleton'
 
@@ -28,7 +27,7 @@ const Allbooks = () => {
 	})
 	const dispatch = useDispatch()
 	const documentState = useSelector(state => state.documents)
-	const loadingState = useSelector(state => state.loadingBar)
+	const [ mostPopular, setMostPopular ] = useState({})
 
 	useEffect(() => {
 		if(documentState.documents.length === 0){
@@ -36,11 +35,21 @@ const Allbooks = () => {
 		}
 	}, [])
 
-	
+		
 	const fetchRelevantDocs = (param) => {
-		console.log(loadingState)
 		dispatch(documentActions.getDocumentsAsync(param.selected + 1))
 	}
+
+	useEffect(() => {
+		let me = {downloads: 0}
+		documentState.documents.forEach(doc => {
+			if(doc.downloads > me.downloads){
+				me = { ...doc }
+			}
+		})
+		setMostPopular(me)
+	}, [documentState.documents])
+
 
 
 	return (
@@ -90,17 +99,17 @@ const Allbooks = () => {
 					Popular Downloads
 				</span>
 					<div className={styles.LargeImage}> { documentState.loading ? <Skeleton height="100%"/> : null } </div>
-					<h2 className={styles.Subheading}> { documentState.loading ? <Skeleton/> :  "The popular download" } </h2>
+					<h2 className={styles.Subheading}> { documentState.loading ? <Skeleton/> :  mostPopular.title } </h2>
 					<div className={styles.smallerDetails}>
 					<Pen/>
-					<span className={styles.text}> { documentState.loading ? <Skeleton/> : "Isaac Bello" }  </span>
+					<span className={styles.text}> { documentState.loading ? <Skeleton/> : mostPopular.author }  </span>
 				</div>
 				<div className={styles.smallerDetails}>
 					<Grid/>
-					<span  className={styles.text}>{ documentState.loading ? <Skeleton/> : "Biography" }</span>
+					<span  className={styles.text}>{ documentState.loading ? <Skeleton/> : mostPopular.tags }</span>
 				</div><div className={styles.smallerDetails}>
 					<Download/>
-					<span  className={styles.text}>{ documentState.loading ? <Skeleton/> : "999" }</span>
+					<span  className={styles.text}>{ documentState.loading ? <Skeleton/> : mostPopular.downloads }</span>
 				</div>
 				<div className={styles.btn}>
 					{ documentState.loading ? <Skeleton height="45px" width="50%"/> : <Button backgroundColor="#001830" color="#fff" bigSize={false} Text="Download" />}

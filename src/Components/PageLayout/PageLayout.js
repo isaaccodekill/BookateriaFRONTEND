@@ -2,6 +2,7 @@ import React, {Fragment, useState} from 'react'
 import styles from './PageLayout.module.css'
 import TopHeader from '../UI/Headers/TopHeader/TopHeader'
 import SubHeader from '../UI/Headers/SubHeader/SubHeader'
+import Notification from '../UI/Notication/Notification'
 
 
 const PageLayout = ({children, button, showButton, background, specialCase}) => {
@@ -13,6 +14,7 @@ const PageLayout = ({children, button, showButton, background, specialCase}) => 
             <div className={styles.main}>
                 {children}
             </div>
+            <Notification/>
         </Fragment>
         
     )

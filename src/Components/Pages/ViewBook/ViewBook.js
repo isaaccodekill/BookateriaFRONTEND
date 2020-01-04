@@ -5,6 +5,8 @@ import PageLayout from '../../PageLayout/PageLayout'
 import { withRouter } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { documentActions } from '../../../Actions'
+import BookPreviewLoader from '../../UI/Loaders/BookSkeleton/BookSkeleton'
+import Skeleton from 'react-loading-skeleton'
 
 const ViewBook = ({ match }) => {
 	const dispatch = useDispatch()
@@ -12,12 +14,13 @@ const ViewBook = ({ match }) => {
 	let {  params } = match
 	let { id } = params
 
+
 	useEffect(() => {
-		if (!documentState.selectedDocument){
+		if (documentState.selectedDocument === null){
 			dispatch(documentActions.selectedDocumentAsync(id))
 		}
 	}, [])
-	
+
 
 	return (
 		<PageLayout background showButton>
@@ -26,11 +29,10 @@ const ViewBook = ({ match }) => {
 						<span className={styles.SectionHeader}>
 							Download 
 						</span>
-						{/* <BookPreview imageIncluded button={true} special clickable={false} BookDetails={documentState.selectedDocument} */}
-						 {/* /> */}
+						{ documentState.loading ? <BookPreviewLoader imageIncluded 	special button /> : (documentState.selectedDocument === null) ?  null : <BookPreview imageIncluded button={true} special clickable={false} BookDetails={documentState.selectedDocument}/>  }
 						<h3 className={styles.headerSmall}>Preview</h3> 
 						<p className={styles.bookdecription}>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio magnam nemo ipsa! Vitae alias fugiat eligendi. Nesciunt eius laboriosam esse, illum ratione. Placeat omnis minus nihil, quos dolorum possimus suscipit!
+							{ documentState.loading ? <Skeleton count={5}/> : (documentState.selectedDocument === null) ? null : documentState.selectedDocument.description }
 						</p>
 					</div>
 				<div className={styles.similarBooks}>

@@ -72,6 +72,7 @@ export const selectedDocumentAsync = (bookID) => async (dispatch) => {
         dispatch(startDocumentAction())
         dispatch(showLoading())
         const result = await axios.get(`${BASE_URL}documents/all/${bookID}`)
+        console.log(result)
         dispatch(hideLoading())
         dispatch(documentActionSuccess("gotten the required document"))
         dispatch(selectDocument(result.data))

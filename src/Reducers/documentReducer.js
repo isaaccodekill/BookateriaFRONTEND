@@ -60,7 +60,7 @@ export default function documentReducer(state = initialStore, action){
         case(documentActions.SELECT_DOCUMENT):
             return {
                 ...state,
-                selectedDocument: action.payload
+                selectedDocument: {...action.payload}
             }    
         default:
             return state

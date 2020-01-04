@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useEffect, useContext } from 'react'
 import styles from './SignUp.module.css'
-import TopHeader from '../../UI/Headers/TopHeader/TopHeader'
-import SubHeader from '../../UI/Headers/SubHeader/SubHeader'
 import Form from '../../Forms/Form/Form'
 import PageLayout from '../../PageLayout/PageLayout'
 import { authActions } from '../../../Actions/index'
+import { useSelector } from 'react-redux'
+import { NotificationContext } from '../../../Contexts/NotificationContext'
 
 const SignUp = () => {
+
+	const authState = useSelector(state => state.auth)
+	const [ setError ] = useContext(NotificationContext)
+
+	useEffect(() => {
+		if(authState.error){
+			setError(authState.error, authActions.clearNotifications)
+		}
+	}, [authState.error])
 
 	const configObject = {	
 		email: {
@@ -78,17 +87,12 @@ const SignUp = () => {
 		}
 	}
 
-	const apiConfig = {
-		url: "https://api.bookateria.net/users/register/",
-		action: authActions.login,
-		target: "Token" 
-	}
 
 
 	return (
 		<PageLayout background showButton>
 			<div className={styles.SignUp}>
-				<Form Heading="Sign Up" configuration={configObject} buttonConfig={buttonConfig} apiConfig={apiConfig}/>
+				<Form Heading="Sign Up" configuration={configObject} buttonConfig={buttonConfig} apiConfig={authActions.registerAsync}/>
 			</div>
 		</PageLayout>
 	)

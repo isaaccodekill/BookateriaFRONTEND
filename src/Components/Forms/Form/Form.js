@@ -107,7 +107,7 @@ const Token = localStorage.getItem("BookateriaAuthToken")
 // }
 
 
-const Form = ( { Heading,  configuration, buttonConfig, apiConfig } ) => {
+const Form = ( { Heading,  configuration, buttonConfig, action } ) => {
 	const [detailsObject, setDetailsObject] = useState(configuration)
 	const [formValid, setFormValidity] = useState(true)
 	const dispatch = useDispatch()
@@ -246,13 +246,6 @@ const Form = ( { Heading,  configuration, buttonConfig, apiConfig } ) => {
 		// make sure the the image shows , make the neccessary adjustments for the for the url and saet the url as the source of the image
 	}
 
-	const submitclasses = formValid ? [styles.formSubmit] : [styles.formSubmit, styles.disabled]
-	let updatingObjext = {}
-	// Object.keys(configuration).forEach(configObject => {
-	// 	updatingObjext = {...updatingObjext, configObject}
-	// })
-	// useEffect(() => setDetailsObject(configuration), [])
-	// creating a group of inputs based on the config objects
 	const inputList = Object.keys(detailsObject).map(key => {
 				if(key === "bookImage"){
 					return (
@@ -276,33 +269,12 @@ const Form = ( { Heading,  configuration, buttonConfig, apiConfig } ) => {
 				}
 				return acc
 			}, {})
-			submitHelper(apiConfig, requiredObject)			
+			submitHelper(requiredObject)			
 		}
 	}
 	
-	async function submitHelper(config, body){
-		// add some extra functionality to catch normal failures
-		try {
-			let param = {}
-			if(config.auth){
-				param = {
-					method: config.method,
-					body,
-					'Authentication': `Bearer ${Token}`,
-					'Content-type': 'application/json'
-				}
-			}
-
-			if(config.exceptionContent){
-				param.delete("Content-type")
-			}
-
-			let response = await fetch(config.url, param)
-			dispatch(config.action(response.data[config.target]))
-		} catch (error) {
-
-		}
-		
+	async function submitHelper(body){
+			dispatch(action(body))		
 	}
 
 

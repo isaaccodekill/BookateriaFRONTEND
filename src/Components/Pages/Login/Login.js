@@ -44,16 +44,10 @@ const Login = () => {
 		}
 	}
 
-	const apiConfig = {
-		url: "https://api.bookateria.net/users/login/",
-		target: "Token",
-		watch: 'status',
-		expectedResult: true
-	}
-
+	
 	return (
 		<PageLayout background showButton specialCase>
-			<Form Heading="Sign in" configuration={configObject} buttonConfig={buttonConfig}/>	
+			<Form Heading="Sign in" configuration={configObject} buttonConfig={buttonConfig} action={authActions.loginAsync}/>	
 		</PageLayout>
 	)
 }

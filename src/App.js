@@ -18,10 +18,12 @@ import RequestedBooks from './Components/Pages/RequestedBooks/RequestedBook'
 // componet import
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute'
 import Logout from './Components/Pages/Logout/Logout';
+import NotificationContextProvider from './Contexts/NotificationContext'
 
 class App extends Component {
   render() {
     return (
+        <NotificationContextProvider>
           <Switch>
             <Route path="/" exact component={Homepage}/>
             <Route path="/books" exact  component={Allbooks} />
@@ -36,6 +38,7 @@ class App extends Component {
             <Route path="/logout" component={Logout} />
             <Route component={NotFoundError}/>
           </Switch>
+        </NotificationContextProvider>
     ) 
   }
 }
