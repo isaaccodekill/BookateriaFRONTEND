@@ -16,21 +16,31 @@ export const logout = () => {
     }
 }
 
+const authFailure = (message) => {
+    return {
+        type: authActions.SET_ERROR,
+        payload: message
+    }
+}
+
+export const clearAuthError = () => {
+    return {
+        type: authActions.CLEAR
+    }
+}
+
 
 export const loginAsync = (body) => async (dispatch) => {
-    
+    console.log(body)
     try{
         dispatch(showLoading())
-        const result = await axios.post('https://api.bookateria.net/users/login/', {
-            'Content-type': 'application/json',
-            body,
-        })
+        const result = await axios.post('https://api.bookateria.net/users/login/', body)
         console.log(result)
         // dispatch(login(token))
         dispatch(hideLoading())
 
     }catch(error){
-
+        dispatch(hideLoading())
     }
 }
 
@@ -38,16 +48,15 @@ export const loginAsync = (body) => async (dispatch) => {
 export const registerAsync = (body) => async (dispatch) => {
     try{
         dispatch(showLoading())
-        const result = await axios.post('https://api.bookateria.net/users/register/', {
-            'Content-type': 'application/json',
-            body
+        const result = await axios.post('https://api.bookateria.net/users/register/', body, {
+            "Content-Type": "application/json"
         })
         console.log(result)
         // dispatch(login(token))
         dispatch(hideLoading())
 
     }catch(error){
-        
+        dispatch(authFailure(error))
     }
 }
 

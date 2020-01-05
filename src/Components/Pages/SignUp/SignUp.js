@@ -9,11 +9,11 @@ import { NotificationContext } from '../../../Contexts/NotificationContext'
 const SignUp = () => {
 
 	const authState = useSelector(state => state.auth)
-	const [ setError ] = useContext(NotificationContext)
+	const [ show, setShow, setNotification] = useContext(NotificationContext)
 
 	useEffect(() => {
 		if(authState.error){
-			setError(authState.error, authActions.clearNotifications)
+			setNotification(authState.error, authActions.clearAuthError, true)
 		}
 	}, [authState.error])
 
@@ -92,7 +92,7 @@ const SignUp = () => {
 	return (
 		<PageLayout background showButton>
 			<div className={styles.SignUp}>
-				<Form Heading="Sign Up" configuration={configObject} buttonConfig={buttonConfig} apiConfig={authActions.registerAsync}/>
+				<Form Heading="Sign Up" configuration={configObject} buttonConfig={buttonConfig} action={authActions.registerAsync}/>
 			</div>
 		</PageLayout>
 	)

@@ -1,7 +1,8 @@
 import * as authActions from '../Actions/authentication/authActionVariables'
 
 const inititalState = {
-    authState: false
+    authState: false,
+    error: ''
 }
 
 const authReducer = (state = inititalState, action) => {
@@ -13,7 +14,17 @@ const authReducer = (state = inititalState, action) => {
         case(authActions.LOGOUT):
             return {
                 authState: false
-            }     
+            }
+        case(authActions.SET_ERROR):
+            return {
+                ...state,
+                error: action.payload
+            }
+        case(authActions.CLEAR):
+            return {
+                ...state,
+                error: ''
+            }             
         default:
             return state
     }   

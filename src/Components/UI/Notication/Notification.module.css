@@ -14,8 +14,13 @@
     pointer-events: all;
 }
 
+.active .expandableBar{
+    animation: expand 40s ease 1.5s 1 forwards;
+}
+
 .close{
     animation: close 1.5s ease 0s 1 forwards;
+    pointer-events: none;
 }
 
 .content{
@@ -51,8 +56,12 @@
     width: 100%;
     max-width: 0;
     height: 4px;
-    animation: expand 40s ease 1.5s 1 forwards;
 }
+
+
+
+
+
 
 
 .error {

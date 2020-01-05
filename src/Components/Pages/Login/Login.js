@@ -1,10 +1,24 @@
-import React from 'react'
+import React, {useEffect, useContext} from 'react'
 import Form from '../../Forms/Form/Form'
 import PageLayout from '../../PageLayout/PageLayout'
 import { authActions } from '../../../Actions'
+import { useSelector } from 'react-redux'
+import { NotificationContext } from '../../../Contexts/NotificationContext'
 
 
 const Login = () => {
+
+	const authState = useSelector(state => state.auth)
+	const [ show, setShow, setNotification, message, finalClearFunc ] = useContext(NotificationContext)
+
+	useEffect(() => {
+		if(authState.error){
+			console.log("called set error from login")
+			setNotification(authState.error, authActions.clearAuthError, true)
+		}
+	}, [authState.error])
+
+
 	const configObject = {
 		username: {
 			elementType: "input",
