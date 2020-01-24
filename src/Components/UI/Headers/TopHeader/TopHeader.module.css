@@ -14,7 +14,7 @@
 
 @media (max-width: 768px){
 	.TopHeader{
-		justify-content: center;
+		justify-content: flex-start;
 	}
 	.searchBar{
 		display: none;

@@ -53,9 +53,15 @@
 .LargeImage{
 	width: 100%;
 	background-color: #ccc;
-	height: 270px;
+	height: 300px;
 	border-radius: 8px;
 	margin-bottom: 15px;
+}
+
+.LargeImage img{
+	height: 300px;
+	width: 100%;
+	object-fit: cover;
 }
 
 .Subheading{

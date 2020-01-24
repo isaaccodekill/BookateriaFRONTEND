@@ -29,7 +29,7 @@ const ViewBook = ({ match }) => {
 						<span className={styles.SectionHeader}>
 							Download 
 						</span>
-						{ documentState.loading ? <BookPreviewLoader imageIncluded 	special button /> : (documentState.selectedDocument === null) ?  null : <BookPreview imageIncluded button={true} special clickable={false} BookDetails={documentState.selectedDocument}/>  }
+						{ documentState.loading ? <BookPreviewLoader imageIncluded 	special button /> : (documentState.selectedDocument === null) ?  null : <BookPreview imageUrl={documentState.selectedDocument.image} imageIncluded button={true} special clickable={false} BookDetails={documentState.selectedDocument}/>  }
 						<h3 className={styles.headerSmall}>Preview</h3> 
 						<p className={styles.bookdecription}>
 							{ documentState.loading ? <Skeleton count={5}/> : (documentState.selectedDocument === null) ? null : documentState.selectedDocument.description }

@@ -29,18 +29,20 @@ export const clearAuthError = () => {
     }
 }
 
-
 export const loginAsync = (body) => async (dispatch) => {
-    console.log(body)
     try{
         dispatch(showLoading())
-        const result = await axios.post('https://api.bookateria.net/users/login/', body)
-        console.log(result)
+        const result = await axios.post('https://api.bookateria.net/users/login/', body, {
+            "Content-Type": "application/json"
+        })
+        console.log("the result", result)
         // dispatch(login(token))
         dispatch(hideLoading())
 
     }catch(error){
+        console.log(JSON.stringify(error, undefined, 2))
         dispatch(hideLoading())
+        // dispatch(authFailure())
     }
 }
 

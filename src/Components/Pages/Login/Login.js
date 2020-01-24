@@ -15,7 +15,7 @@ const Login = () => {
 		if(authState.error){
 			console.log("called set error from login")
 			setNotification(authState.error, authActions.clearAuthError, true)
-		}
+		}  
 	}, [authState.error])
 
 

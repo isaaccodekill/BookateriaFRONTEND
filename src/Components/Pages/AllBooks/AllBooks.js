@@ -12,6 +12,8 @@ import { documentActions } from '../../../Actions'
 import ReactPaginate from 'react-paginate'
 import BookPreviewLoader from '../../UI/Loaders/BookSkeleton/BookSkeleton'
 import Skeleton from 'react-loading-skeleton'
+import DefaultImage from '../../UI/DefaultImage/Defaultimage'
+
 
 
 
@@ -62,12 +64,13 @@ const Allbooks = () => {
 				<div className={styles.GridContainer}>
 					{documentState.loading ? ( Array(10).fill().map(doc => (<BookPreviewLoader imageIncluded background />))) 
 					: (documentState.documents.map(doc => (
-						<BookPreview imageIncluded clickable   BookDetails={{
+						<BookPreview imageIncluded imageUrl={doc.image} doc={doc} clickable   BookDetails={{
 							id: doc.id,	
 							title: doc.title,
 							author: doc.author,
 							tags: doc.tags,
-							downloads: doc.downloads}} />
+							downloads: doc.downloads, 
+						}} />
 					))) }
 					 
 					 {/* <AnimatedBooks style={bookStyleProps} imageIncluded clickable  BookDetails={{
@@ -98,7 +101,7 @@ const Allbooks = () => {
 				<span className={styles.SectionHeader}>
 					Popular Downloads
 				</span>
-					<div className={styles.LargeImage}> { documentState.loading ? <Skeleton height="100%"/> : null } </div>
+					<div className={styles.LargeImage}> { documentState.loading ? <Skeleton height="100%"/> : mostPopular.image ? <img src={mostPopular.image}/> : <DefaultImage/> } </div>
 					<h2 className={styles.Subheading}> { documentState.loading ? <Skeleton/> :  mostPopular.title } </h2>
 					<div className={styles.smallerDetails}>
 					<Pen/>
@@ -112,7 +115,9 @@ const Allbooks = () => {
 					<span  className={styles.text}>{ documentState.loading ? <Skeleton/> : mostPopular.downloads }</span>
 				</div>
 				<div className={styles.btn}>
-					{ documentState.loading ? <Skeleton height="45px" width="50%"/> : <Button backgroundColor="#001830" color="#fff" bigSize={false} Text="Download" />}
+					{ documentState.loading ? <Skeleton height="45px" width="50%"/> : <a href={mostPopular.pdf} target="_blank">
+					<Button backgroundColor="#001830" color="#fff" bigSize={false} Text="Download" />																	  	
+					</a> }
 				</div>
 			</div>
 		</div>

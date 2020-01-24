@@ -16,7 +16,7 @@ const Homepage = () => {
 			<div className={styles.content}>
 				<div className={styles.textSection}>
 					<h1>Welcome To Bookateria</h1>
-					<p>Books you crave, Documents you need,<span className={styles.block}>All on the menu</span></p>
+					<p>Books you crave, Documents you need,<span className={styles.block}>All on the menu.</span></p>
 					<NavLink to="/books">
 						<Button bigSize color="#fff" backgroundColor="#005BB3" Text="View all books" />
 					</NavLink>

@@ -50,7 +50,7 @@ const Subheader = ({navOpen, setNavOpen, background, showButton, specialCase}) =
 				</NavLink>
 			</div>
 			</div>
-			<LoadingBar style={{height: '4px', 'background-color':'#001830'}} className={styles.loaderBar}/>
+			<LoadingBar style={{height: '4px', 'background-color':'#00C853'}} className={styles.loaderBar}/>
 		</Fragment>
 	)
 }

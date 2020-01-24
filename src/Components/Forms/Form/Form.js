@@ -269,6 +269,7 @@ const Form = ( { Heading,  configuration, buttonConfig, action } ) => {
 				}
 				return acc
 			}, {})
+			
 			submitHelper(requiredObject)			
 		}
 	}

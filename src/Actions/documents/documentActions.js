@@ -31,10 +31,12 @@ const createDocument = (document) => ({
     
 })
 
-export const selectDocument = (document) => ({
-    type: documentActions.SELECT_DOCUMENT,
-    payload: document
-})
+export const selectDocument = (document) => {
+    return ({
+        type: documentActions.SELECT_DOCUMENT,
+        payload: document
+    })
+}
 
 const setCount = (count) => ({
     type: documentActions.SET_COUNT,
@@ -72,7 +74,7 @@ export const selectedDocumentAsync = (bookID) => async (dispatch) => {
         dispatch(startDocumentAction())
         dispatch(showLoading())
         const result = await axios.get(`${BASE_URL}documents/all/${bookID}`)
-        console.log(result)
+        console.log("the result", result)
         dispatch(hideLoading())
         dispatch(documentActionSuccess("gotten the required document"))
         dispatch(selectDocument(result.data))

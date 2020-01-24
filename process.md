@@ -1,51 +1,13 @@
-make the drag and drop work for the image upload
-make the cloudinary kinni work
-make all the ui changes
-add the helpers for form validations and fetching add all the fetch requesrt
-create the reducers and the action creators
-add the authentication and protect the routes
-make the login and the sign up work 
-add all the book related routes - (downloads should be working),
-add a pop up google style for notifications and stuff vague arror messages (error occured and download started),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-open the swagger page on the pc
-authentication context
-protected routes components
-protect the protected routes and add authntication to auth dependedent UI
-initilaize redux
-write the reducers
-write the action creators
-write the fetch helper
-do the login and sign up routes
-do the get books route
-do the upload book route.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- make the buttons fatter -->
+fix the upload document icon
+fix the proper addition of tags to a books 
+fix the addition of a category to a book 
+fix the selectedCategory page 
+fix the selectedTag page. (in house routing)
+<!-- fix the home page and and the library image pages with good css (perfect when responsive) -->
+make the upload book work
+make the sign up work
+tag the tags to the book card
+fix the search component
+remove it from the side bar on smaller screens add a small search icon to the header, that on click will show the mini search component
 
