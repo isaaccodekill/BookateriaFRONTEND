@@ -1,7 +1,7 @@
 import * as authActions from '../Actions/authentication/authActionVariables'
 
 const inititalState = {
-    authState: false,
+    authState: localStorage.getItem("BookateriaAuthToken") === null ? false : true,
     error: ''
 }
 

@@ -35,8 +35,7 @@ export const loginAsync = (body) => async (dispatch) => {
         const result = await axios.post('https://api.bookateria.net/users/login/', body, {
             "Content-Type": "application/json"
         })
-        console.log("the result", result)
-        // dispatch(login(token))
+        dispatch(login(result.data.token))
         dispatch(hideLoading())
 
     }catch(error){
@@ -51,14 +50,12 @@ export const loginAsync = (body) => async (dispatch) => {
 
 
 export const registerAsync = (body) => async (dispatch) => {
-    console.log(body)
     try{
         dispatch(showLoading())
         const result = await axios.post('https://api.bookateria.net/users/register/', body, {
             "Content-Type": "application/json"
         })
-        console.log("auth result",result)
-        // dispatch(login(token))
+        dispatch(login(result.data.token))
         dispatch(hideLoading())
 
     }catch(error){

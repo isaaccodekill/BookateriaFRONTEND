@@ -4,6 +4,7 @@ import PageLayout from '../../PageLayout/PageLayout'
 import { authActions } from '../../../Actions'
 import { useSelector, useDispatch } from 'react-redux'
 import { NotificationContext } from '../../../Contexts/NotificationContext'
+import { Redirect } from 'react-router'
 
 
 const Login = () => {
@@ -65,6 +66,9 @@ const Login = () => {
 		}
 	}
 
+	if(authState.authState){
+		return (<Redirect to="/books"/>)
+	}
 	
 	return (
 		<PageLayout background showButton specialCase>

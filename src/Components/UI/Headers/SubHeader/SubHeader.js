@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import styles from './SubHeader.module.css'
 import NavItem from '../../../NavItems/NavItems'
 import Button from '../../Button/Button'
@@ -9,11 +9,19 @@ import { useSelector } from 'react-redux'
 
 
 const Subheader = ({navOpen, setNavOpen, background, showButton, specialCase}) => {
-	const {authState} = useSelector(state => state.auth)
+	const authState = useSelector(state => state.auth)
+	const [auth, setAuth] = useState(false)
+	useEffect(() => {
+		if(authState.authState){
+			setAuth(true)
+		}else{
+			setAuth(false)
+		}
+	}, [authState.authState])
 	const backgroundColor = background ? 'linear-gradient(to right, rgb(0, 56, 110 ) 70%,  rgb(102, 180, 225))' :  'transparent'
 	let button = null
-	let text = specialCase ? "Sign Up" :  authState ? "Logout" : "Sign In"
-	let btnLink = specialCase ? "/signup" : authState ? "/logout" : "/login"
+	let text = specialCase ? "Sign Up" :  auth ? "Logout" : "Sign In"
+	let btnLink = specialCase ? "/signup" : auth ? "/logout" : "/login"
 	
 	if (showButton){
 		if (background)

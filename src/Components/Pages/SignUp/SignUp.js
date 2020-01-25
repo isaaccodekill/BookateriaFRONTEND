@@ -5,6 +5,7 @@ import PageLayout from '../../PageLayout/PageLayout'
 import { authActions } from '../../../Actions/index'
 import { useSelector, useDispatch } from 'react-redux'
 import { NotificationContext } from '../../../Contexts/NotificationContext'
+import { Redirect } from 'react-router'
 
 const SignUp = () => {
 
@@ -86,6 +87,11 @@ const SignUp = () => {
 		}
 	}
 
+	if(authState.authState){
+		return (<Redirect to="/books"/>)
+	}
+
+
 	const buttonConfig = {
 		text: "Create Account",
 		style: {  
@@ -93,8 +99,6 @@ const SignUp = () => {
 			color: "#fff"
 		}
 	}
-
-
 
 	return (
 		<PageLayout background showButton>

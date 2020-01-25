@@ -12,7 +12,7 @@ const Logout = ({history}) => {
     if (!authState){
         history.goBack()
     }else{
-        dispatch(authActions.logout)
+        dispatch(authActions.logout())
     }
     return (
         <Redirect to="/" />
