@@ -68,7 +68,7 @@
 	font-size: 15px;
 	color: #001830;
 	margin-bottom: 10px;
-}
+}  
 .smallerDetails{
 	display: flex;
 	align-items: center;
@@ -92,7 +92,7 @@
 	width: 100%;
 }
 .btn{
-	margin-top: 13px;
+	margin-top: 70px;
 }
 
 .paginateHolder {
@@ -123,6 +123,7 @@
 	justify-content: center;
 	align-items: center;
 	position: relative;
+	cursor: pointer;
 }
 
 .paginateContainer > li > a {
@@ -190,4 +191,26 @@
 	.BookList{
 		width: 100%;
 	}
+}
+
+
+@media (max-width: 600px){
+	.paginateContainer > li{
+		display: none;
+	}
+
+	.paginateContainer > li:first-child, li:last-child {
+		display: flex;
+	}
+	
+	
+	.paginateContainer > li.paginatePageActive{
+		color: #00386e;
+		background-color: #fff;
+		border: 1px solid #ffffff;
+		border-bottom: 0;
+		border-top: none;
+		display: flex;
+	}
+	
 }

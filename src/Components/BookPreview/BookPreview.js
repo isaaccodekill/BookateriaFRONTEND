@@ -22,7 +22,7 @@ const BookPreview = ({ history, imageIncluded, special, clickable, background, i
 	const imageStyle = { 
 		backgroundImage : `Url(${imageUrl})`
 	}
-	const detailStyle = imageIncluded ? { width: '55%' } : {width: '100%'}
+	const detailStyle = imageIncluded ? { width: '60%' } : {width: '100%'}
 	let detailClasses = clickable ? [styles.BookDetail, styles.clickable] : [styles.BookDetail]
 	if (background){
 		detailClasses.push(styles.clickable2)

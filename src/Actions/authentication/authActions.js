@@ -40,25 +40,35 @@ export const loginAsync = (body) => async (dispatch) => {
         dispatch(hideLoading())
 
     }catch(error){
-        console.log(JSON.stringify(error, undefined, 2))
+        if(error.response){
+            dispatch(authFailure(error.response.data.message[0]))
+        }else{
+            dispatch(authFailure(error.message))
+        }
         dispatch(hideLoading())
-        // dispatch(authFailure())
     }
 }
 
 
 export const registerAsync = (body) => async (dispatch) => {
+    console.log(body)
     try{
         dispatch(showLoading())
         const result = await axios.post('https://api.bookateria.net/users/register/', body, {
             "Content-Type": "application/json"
         })
-        console.log(result)
+        console.log("auth result",result)
         // dispatch(login(token))
         dispatch(hideLoading())
 
     }catch(error){
-        dispatch(authFailure(error))
+        if(error.response){
+            const arr = Object.keys(error.response.data)
+            dispatch(authFailure(error.response.data[arr[0]][0]))
+        }else{
+            dispatch(authFailure(error.message))
+        }
+        dispatch(hideLoading())
     }
 }
 

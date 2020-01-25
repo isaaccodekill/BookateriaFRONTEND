@@ -1,18 +1,25 @@
-import React, { useEffect, useContext } from 'react'
+import React, {useState, useEffect, useContext } from 'react'
 import styles from './SignUp.module.css'
 import Form from '../../Forms/Form/Form'
 import PageLayout from '../../PageLayout/PageLayout'
 import { authActions } from '../../../Actions/index'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { NotificationContext } from '../../../Contexts/NotificationContext'
 
 const SignUp = () => {
 
+	const dispatch = useDispatch()
 	const authState = useSelector(state => state.auth)
 	const [ show, setShow, setNotification] = useContext(NotificationContext)
+	const [mount, setMount] = useState(false)
 
 	useEffect(() => {
-		if(authState.error){
+		dispatch(authActions.clearAuthError())
+		setMount(true)	
+	}, [])
+
+	useEffect(() => {
+		if(authState.error && mount){
 			setNotification(authState.error, authActions.clearAuthError, true)
 		}
 	}, [authState.error])

@@ -1,6 +1,6 @@
 <!-- make the buttons fatter -->
 fix the upload document icon
-fix the proper addition of tags to a books 
+fix the proper addition of tags to a books
 fix the addition of a category to a book 
 fix the selectedCategory page 
 fix the selectedTag page. (in house routing)
