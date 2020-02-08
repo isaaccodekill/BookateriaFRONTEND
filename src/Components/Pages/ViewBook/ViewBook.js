@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './ViewBook.module.css'
 import BookPreview from '../../BookPreview/BookPreview'
 import PageLayout from '../../PageLayout/PageLayout'
@@ -13,6 +13,8 @@ const ViewBook = ({ match }) => {
 	const documentState = useSelector(state => state.documents)
 	let {  params } = match
 	let { id } = params
+
+	const [ loading, setLoading ] = useState(true) 
 
 
 	useEffect(() => {
@@ -39,7 +41,10 @@ const ViewBook = ({ match }) => {
 					<span className={[styles.SectionHeader, styles.SectionHeaderSecond].join(' ')}>
 						Similar Books
 					</span>
-					<BookPreview imageIncluded clickable BookDetails={{
+					{
+						loading ? Array(3).fill().map(() =>(<BookPreviewLoader imageIncluded background />)) : null
+					}
+					{/* <BookPreview imageIncluded clickable BookDetails={{
 						id: 1,
 						title: "The journey of Isaac Bello",
 						author: "Isaac Bello",
@@ -58,8 +63,8 @@ const ViewBook = ({ match }) => {
 						title: "The journey of Isaac Bello",
 						author: "Isaac Bello",
 						category: "Biography",	
-						downloads: 999}}
-					 />
+						downloads: 999}} */}
+					 {/* /> */}
 				</div>
 			</div>
 		</PageLayout>

@@ -43,12 +43,14 @@ const Allbooks = () => {
 	}
 
 	useEffect(() => {
-		let me = {downloads: 0}
+		let me = { downloads: 0 }
 		documentState.documents.forEach(doc => {
+			// console.log(doc)
 			if(doc.downloads > me.downloads){
 				me = { ...doc }
 			}
 		})
+		// console.log("the most popular", me)
 		setMostPopular(me)
 	}, [documentState.documents])
 

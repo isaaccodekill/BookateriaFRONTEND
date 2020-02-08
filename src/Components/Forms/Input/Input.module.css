@@ -51,6 +51,7 @@
 	outline: none;
 	height: 150px;
 	width: 100%;
+	resize: vertical;
 }
 .errorMessage{
 	color: rgba(255, 0, 0, 0.774);
@@ -76,38 +77,37 @@
 	font-size: 15px;
 	outline: none;	
 }
+
 .imageupload{
 	width: 100%;
 	color: #ccd9e3;
-	height: 250px;
+	height: 350px;
 	background-color: transparent;
 	border: 1px solid #ccc;
 	position: relative;
-	max-width: 250px;
+	width: 350px;
+	max-width: 90%;
 	margin-bottom: 25px;
 	cursor: pointer;
 	transition: all 0.3s ease-in;
 }
 .imageupload:hover{
-	background-color: #2c6d9f;
+	background-color: #f7f7f7;
 	color: #fff;
+	border: 1px dotted #ccc;
 }
-.showBlue{
-	background-color: #2c6d9f;
-	color: #fff;
+
+.boxImage{
+	display: flex;
+	justify-content: center;
 }
 
 /*action classes for the image upload class*/
-.activeImageHolder{
-	background-color: #0038ee;
-	color: #fff;
-	border: none;
-}
 
 .dragClickText{
 	height: 100%;
 	width: 100%;
-	color: currentColor;
+	color: #ccc;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -115,22 +115,51 @@
 	padding: 20px;
 }
 .dragClickText svg{
-	height: 30px;
-	width: 30px;
+	height: 50px;
+	width: 50px;
 	transition: all 0.3s ease-in;	
-	margin-bottom: 15px
+	margin-bottom: 15px;
+	fill: #2C6D9F;
+	transition: all 0.3s ease;
 }
-.dragClickText path{
-	fill: currentColor;
+/* .dragClickText path{ */
+	/* fill: currentColor; */
+/* } */
+
+.showDrag{
+	background-color: #f7f7f7;
+	border: 1px dotted #ccc;
 }
+
+.showDrag .dragClickText{
+	color: #cccccc;
+}
+.showBlue{
+	background-color: #2c6d9f;
+	color: #fff;
+}
+
+.noPointers{
+	pointer-events: none;
+}
+
+.showDrag .dragClickText svg{
+	transform: scale(1.2);
+}
+
+
 .dragClickText h3{
 	font-size: 17px;
 }
 .cancelDiv{
 	position: absolute;
 	z-index: 20;
-	top: 20px;
-	left: 20px;
+	top: 15px;
+	right: 15px;
+	height: 25px;
+	width: 25px;
+	cursor: pointer;
+	pointer-events: all;
 }
 .imagePreviewSection{
 	position: absolute;
@@ -142,6 +171,9 @@
 .imageContent{
 	width: 100%;
 	height: 100%;
+	object-fit: cover;
+	background-color: #fff;
+	pointer-events: none;
 }
 
 

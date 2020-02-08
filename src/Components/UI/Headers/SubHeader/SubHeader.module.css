@@ -83,7 +83,7 @@
 	right: 30px;
 }
 .loaderBar{
-	position: absolute;
+	position: fixed;
 	left: 0;
 	top: 123px;
 	z-index: 3000;

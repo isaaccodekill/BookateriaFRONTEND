@@ -19,7 +19,7 @@ const UploadBook = ( ) => {
 			valid: true,
 			validations: {
 				maxSize: "10mb",
-				alloweFileType: ['jpeg', 'png', 'svg']
+				allowedFileType: ['image/jpeg', 'image/png', 'image/svg']
 			},
 			errorMessages: []
 		},
@@ -52,7 +52,7 @@ const UploadBook = ( ) => {
 			errorMessages: []
 		},
 		Category: {
-			elementType: "input",
+			elementType: "selectApi",
 			elementConfig: {
 				placeholder: "Add a Category",
 				type: 'text'
@@ -90,6 +90,9 @@ const UploadBook = ( ) => {
 				alloweFileType: ["pdf", "epub"]
 			},
 			errorMessages: []
+		},
+		tags: {
+			
 		}
 	}
 

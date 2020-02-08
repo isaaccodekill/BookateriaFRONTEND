@@ -8,103 +8,6 @@ import { useDispatch } from 'react-redux'
 
 const Token = localStorage.getItem("BookateriaAuthToken")
 
-// this is an explanation on how the cofigData prop works in this form
-// so the configuration prop should be an object, each of which has a unique key which will later become the name attribute on the input element it self
-// now each key will refer to an object which contains things like value,  the element type, the element config( contains the placeholder and the type) , then the valid property which will determine if its valid to be submitted
-// it will also contain the validation key which will refer to an objec of all the kind of validations that will be carried out
-// and also an error message key which will contain all the error messages if it doesnt meet the validations
-
-// note this component will also contain the validations seems (like i'll  have to learn that useEffect hook)
-// then i will add a new url prop to where the data from this form will be sent
-// if the  form isnt valid then it wont be able to submit 
-
-// an example of the configurationsdata that will be passed as the configuration prop
-// the example below is used in the upload a book page
-// {
-// 	bookImage: {
-// 		elemenType: "image",
-// 		elementConfig: {
-// 			placeholder: "Add a cover photo",
-// 			type: "file"	
-// 		},
-// 		previewUrl: "",
-// 		value: "",
-// 		valid: true,
-// 		validations: {
-// 			maxSize: "10mb",
-// 			alloweFileType: ['jpeg', 'png', 'svg']
-// 		},
-// 		errorMessages: []
-// 	},
-// 	 : {
-// 		elemenType: "input",
-// 		elementConfig: {
-// 			placeholder: "Add a title",
-// 			type: 'text'
-// 		}
-// 		value: "",
-// 		valid: true,
-// 		validations: {
-// 			required: true,
-// 			maxCharLength: 256
-// 		},
-// 		errorMessages: []
-// 	},
-// 	Author: {
-// 		elemenType: "input",
-// 		elementConfig: {
-// 			placeholder: "Add an Author",
-// 			type: 'text'
-// 		}
-// 		value: "",
-// 		valid: true,
-// 		validations: {
-// 			required: true,
-// 			maxCharLength: 256
-// 		},
-// 		errorMessages: []
-// 	},
-// 	Category: {
-// 		elemenType: "input",
-// 		elementConfig: {
-// 			placeholder: "Add a Category",
-// 			type: 'text'
-// 		}
-// 		value: "",
-// 		valid: true,
-// 		validations: {
-// 			required: true,
-// 			maxCharLength: 256
-// 		},
-// 		errorMessages: []
-// 	},
-// 	Description: {
-// 		elemenType: "textArea",
-// 		elementConfig: {
-// 			placeholder: "Add a Description",
-// 			type: 'text'
-// 		}
-// 		value: "",
-// 		valid: true,
-// 		validations: {},
-// 		errorMessages: []
-// 	},
-// 	bookFile: {
-// 		elemenType: "file",
-// 		elementConfig: {
-// 			placeholder: "Add the book file",
-// 			type: "file"	
-// 		},
-// 		previewUrl: "",
-// 		value: "", // need to find the way to make the name of the book show as i upload it
-// 		valid: true,
-// 		validations: {
-// 			required: true,
-// 			allowedFileType: ["pdf", "epub"]
-// 		},
-// 		errorMessages: []
-// 	}
-// }
 
 
 const Form = ( { Heading,  configuration, buttonConfig, action } ) => {
@@ -157,6 +60,20 @@ const Form = ( { Heading,  configuration, buttonConfig, action } ) => {
 				}
 			}
 			if (validation === "allowedFileType"){
+				if(value){
+					let valid = false
+					for(let i = 0; i < selectedPiece.validations.allowedFileType.length; i++ ){
+						if(value.type === selectedPiece.validations.allowedFileType[i]){
+							valid = true
+							break
+						}
+					}
+
+					if(!valid){
+						errorMessages.push("File must be an image")
+						validity = false
+					}
+				}
 				// find away to get he extension of the selected file 
 			}
 		})
@@ -180,13 +97,15 @@ const Form = ( { Heading,  configuration, buttonConfig, action } ) => {
 		return formValidity
 	}
 
-	const setInputData = (e, valueParam) => {
+	const setInputData = (e, valueParam, name) => {
+
 		// get which piece of the state it is and its current value
-		const targetData = e.target.name
-		const currentValue = e.target.value
+		const targetData = name ? name : e.target.name
+		// const currentValue =  e.target.value
 		const updatedDetailsObject = {...detailsObject}
 		const selectedPiece = {...updatedDetailsObject[targetData]}
 
+		
 
 		// properly spreading the inner config objects  and arrays 
 		selectedPiece.elementConfig = {...updatedDetailsObject[targetData].elementConfig}
@@ -204,7 +123,7 @@ const Form = ( { Heading,  configuration, buttonConfig, action } ) => {
 			if (selectedPiece.elementType === "file"){
 				selectedPiece.value = e.target.files[0]	
 			}else{	
-				selectedPiece.value = currentValue
+				selectedPiece.value = e ? e.target.value : valueParam
 			}
 		}
 		updatedDetailsObject[targetData] = {...selectedPiece}
@@ -216,41 +135,11 @@ const Form = ( { Heading,  configuration, buttonConfig, action } ) => {
 		// runValidations(targetData) 
 	}
 
-	const imageUploader = async (e) => {
-		const cloudinary_url = "https://api.cloudinary.com/v1_1/isaaccloud"
-		const preset = "y2pm46hq"
-
-		const fileReceived = e.target.files[0]
-		const formData = new FormData()
-
-		formData.append("image", fileReceived)
-		formData.append("upload_preset", preset)
-
-
-		// get the file (done)
-		fetch( cloudinary_url, {
-			method: "post",
-			headers: {
-				'Content-type': 'application/x-www-form-urlencoded'
-			},
-			body: formData 
-		})
-		.then(response => {
-			// setInputData(e, 7)
-		})
-		.catch(error => {
-		})
-		// send the file to th cloudinary
-		// get the url from the response
-		// save the url and the value in the file input
-		// make sure the the image shows , make the neccessary adjustments for the for the url and saet the url as the source of the image
-	}
-
 	const inputList = Object.keys(detailsObject).map(key => {
 				if(key === "bookImage"){
 					return (
 						<Input name={key} Type={detailsObject[key].elementType} 
-							inputConfig={{...detailsObject[key].elementConfig}} value={detailsObject[key].value} action={imageUploader}
+							inputConfig={{...detailsObject[key].elementConfig}} value={detailsObject[key].value} action={setInputData }
 							errors={detailsObject[key].errorMessages} />		
 					)	
 				}
@@ -275,6 +164,7 @@ const Form = ( { Heading,  configuration, buttonConfig, action } ) => {
 	}
 	
 	async function submitHelper(body){
+			console.log("forms body", body)
 			dispatch(action(body))		
 	}
 

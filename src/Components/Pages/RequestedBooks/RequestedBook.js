@@ -1,17 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './RequestedBook.module.css'
 import TopHeader from '../../UI/Headers/TopHeader/TopHeader'
 import SubHeader from '../../UI/Headers/SubHeader/SubHeader'
 import BookPreview from '../../BookPreview/BookPreview'
 import Button from '../../UI/Button/Button'
 import { NavLink } from 'react-router-dom'
-import { ReactComponent as Pen } from '../../../assets/images/Union 65.svg'
-import { ReactComponent as Grid } from '../../../assets/images/Union 67.svg'
-import { ReactComponent as Download } from '../../../assets/images/Union 63.svg'
 import PageLayout from '../../PageLayout/PageLayout'
+import { useSelector, useDispatch } from 'react-redux'
+import { requestActions } from '../../../Actions'
+
 
 
 const RequestedBook = () => {
+	const dispatch = useDispatch()
+	const { requests } = useSelector(state => state.request)
+
+	// const [ requestedBooks, setRequestedBooks ] = useState([])
+
+	useEffect(() => {
+		dispatch(requestActions.getBooksAsync())
+	}, [])
+
+
 	return (
 		<PageLayout background showButton>
 			<div className={styles.Allbooks}>
@@ -20,77 +30,12 @@ const RequestedBook = () => {
 					Requested Books
 				</span>
 				<div className={styles.GridContainer}>
-					<BookPreview background BookDetails={{
-											id: 1,	
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />
-					<BookPreview background  BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />
-					<BookPreview background BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />	
-					<BookPreview background BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />	
-					<BookPreview background BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />																								
-					<BookPreview background BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />
-					<BookPreview background BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />	
-					<BookPreview background BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />																								
-					<BookPreview background BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />
-					<BookPreview background BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />	
-					<BookPreview background BookDetails={{
-											id: 1,
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />																								
-					<BookPreview background BookDetails={{
-											title: "The journey of Isaac Bello",
-											author: "Isaac Bello",
-											category: "Biography",	
-											downloads: 999}} />																			
+					{requests.map(doc => (<BookPreview background BookDetails={{
+											id: doc.id,	
+											title: doc.title,
+											author: doc.author,
+											category: doc.category,	
+											downloads: 999}} />))}
 				</div>
 			</div>
 			<div className={styles.PopularDownloads}>

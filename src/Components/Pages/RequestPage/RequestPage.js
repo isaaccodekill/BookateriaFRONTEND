@@ -3,6 +3,7 @@ import TopHeader from '../../UI/Headers/TopHeader/TopHeader'
 import SubHeader from '../../UI/Headers/SubHeader/SubHeader'
 import Form from '../../Forms/Form/Form'
 import PageLayout from '../../PageLayout/PageLayout'
+import { requestActions } from '../../../Actions/index'
 
 
 const RequestPage = () => {
@@ -36,7 +37,7 @@ const RequestPage = () => {
 			errorMessages: []
 		},
 		Category: {
-			elementType: "input",
+			elementType: "selectApi",
 			elementConfig: {
 				placeholder: "Add a Category",
 				type: 'text'
@@ -73,7 +74,7 @@ const RequestPage = () => {
 
 	return (
 		<PageLayout background showButton>
-			<Form Heading="Request a book" configuration={configObject} buttonConfig={buttonConfig} />
+			<Form Heading="Request a book" configuration={configObject} buttonConfig={buttonConfig} action={requestActions.postBooksAsync} />
 		</PageLayout>
 	)
 }
