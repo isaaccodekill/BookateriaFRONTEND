@@ -11,14 +11,14 @@ const CheckBoxGroup = ({value, SetValueFunc, inputConfig}) => {
     function addAdditionalTag(e){
         e.preventDefault()
         if(textContent){
-            SetValueFunc(null, [ ...value, textContent ], "tags")
+            SetValueFunc(null, [ ...value, textContent ], "all_tags")
             setTextContent('')
         }
     }
 
     function deleteAdditional(e, text){
         if(!e.target.checked){
-            SetValueFunc(null, [...value].filter(i => i !== text ), "tags")
+            SetValueFunc(null, [...value].filter(i => i !== text ), "all_tags")
         }
     }
 

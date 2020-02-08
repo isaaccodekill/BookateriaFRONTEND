@@ -121,6 +121,7 @@ const Form = ( { Heading,  configuration, buttonConfig, action } ) => {
 			}	
 		} else {
 			if (selectedPiece.elementType === "file"){
+				console.log("file", e.target.files[0])
 				selectedPiece.value = e.target.files[0]	
 			}else{	
 				selectedPiece.value = e ? e.target.value : valueParam
@@ -165,7 +166,7 @@ const Form = ( { Heading,  configuration, buttonConfig, action } ) => {
 	
 	async function submitHelper(body){
 			console.log("forms body", body)
-			dispatch(action(body))		
+			// dispatch(action(body))
 	}
 
 

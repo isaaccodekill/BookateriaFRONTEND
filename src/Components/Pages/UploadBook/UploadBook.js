@@ -8,7 +8,7 @@ import PageLayout from '../../PageLayout/PageLayout'
 const UploadBook = ( ) => {
 
 	const configObject = {
-		bookImage: {
+		image: {
 			elementType: "image",
 			elementConfig: {
 				// placeholder: "Add a cover photo",
@@ -37,7 +37,7 @@ const UploadBook = ( ) => {
 			},
 			errorMessages: []
 		},
-		Author: {
+		author: {
 			elementType: "input",
 			elementConfig: {
 				placeholder: "Add an Author",
@@ -51,7 +51,7 @@ const UploadBook = ( ) => {
 			},
 			errorMessages: []
 		},
-		Category: {
+		category: {
 			elementType: "selectApi",
 			elementConfig: {
 				placeholder: "Add a Category",
@@ -65,7 +65,7 @@ const UploadBook = ( ) => {
 			},
 			errorMessages: []
 		},
-		Description: {
+		description: {
 			elementType: "textArea",
 			elementConfig: {
 				placeholder: "Add a Description",
@@ -76,7 +76,7 @@ const UploadBook = ( ) => {
 			validations: {},
 			errorMessages: []
 		},
-		bookFile: {
+		pdf: {
 			elementType: "file",
 			elementConfig: {
 				placeholder: "Add the book file",
@@ -87,11 +87,11 @@ const UploadBook = ( ) => {
 			valid: true,
 			validations: {
 				required: true,
-				allowedFileType: ["pdf", "epub"]
+				allowedFileType: ["application/pdf", "application/epub", "application/epub+zip"]
 			},
 			errorMessages: []
 		},
-		tags: {
+		all_tags: {
 			value: [],
 			elementType: "checkGroup",
 			elementConfig: {
