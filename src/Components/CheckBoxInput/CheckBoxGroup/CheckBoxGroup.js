@@ -1,32 +1,35 @@
 import React, { useState } from 'react'
 import styles from './CheckBoxGroup.module.css'
+import CheckInput from "../CheckInput/CheckInput";
 
-const CheckBoxGroup = ({value, SetInputFunc, inputConfig}) => {
-    const [ showInput, setShowInput ] = useState(false)
-    const [ additonalTags, setShowAdditionalTags ] = useState([])
-    
+const CheckBoxGroup = ({value, SetValueFunc, inputConfig}) => {
+    const [textContent, setTextContent] = useState('')
 
-    function checkChange(){
-           
+
+
+
+    function addAdditionalTag(e){
+        e.preventDefault()
+        if(textContent){
+            SetValueFunc(null, [ ...value, textContent ], "tags")
+            setTextContent('')
+        }
     }
 
-    function deleteAdditional(){
-
+    function deleteAdditional(e, text){
+        if(!e.target.checked){
+            SetValueFunc(null, [...value].filter(i => i !== text ), "tags")
+        }
     }
 
     return (
-        <div className={styles.checkgroup}>
+        <div className={styles.checkGroup}>
             <p className={styles.Label}>{inputConfig.placeholder}</p>
-            { value.map(val => {
-                if(!additonalTags.includes(val)){
-                    return (<CheckInput text={val} changeFunc={}/>)
-                }
-            }) }
-            {/* from the default items in the group we give a check input and the function to remove them from the state */}
-
-            <span className={additionalTags}> Add a tag </span>
-            <input type="text"/>
-            {/* a new input that's styled to add additonal tags these tags are then sent to the   */}
+            {value.map(val => (<CheckInput text={val} changeFunc={deleteAdditional}/>))}
+            <div className={styles.inputGroup}>
+                <input maxLength={20} className={styles.input} type="text" value={textContent} onChange={(e) => setTextContent(e.target.value) } />
+                <button onClick={addAdditionalTag} type="submit" className={styles.button}>ADD</button>
+            </div>
 		</div>
     )
 }

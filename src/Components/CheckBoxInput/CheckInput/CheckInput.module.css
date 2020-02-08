@@ -1,0 +1,55 @@
+.checkInput{
+    width: 100%;
+    margin: 15px 0 15px;
+}
+
+.hiddenInput{
+    opacity: 0;
+    transform: scale(0);
+    display: none;
+}
+
+.hiddenInput:checked + .InputGroup .fakeCheckbox .checkInner{
+    transform: rotate(45deg) scale(1);
+}
+
+.InputGroup{
+    display: flex;
+    width: 100%;
+    opacity: 0;
+    animation: fadeIn 0.5s ease 0s forwards;
+}
+
+.fakeCheckbox{
+    height: 20px;
+    width: 20px;
+    border: 2px solid #005BB3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+
+}
+
+.checkInner{
+    height: 100%;
+    width: 5px;
+    transform: rotate(45deg) scale(0) translateY(-5px);
+    border: 2px solid #005BB3;
+    border-top: none;
+    border-left: none;
+}
+
+.checkText{
+    font-size: 15px;
+    margin-left: 15px;
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}

@@ -6,11 +6,11 @@ import { ReactComponent as Upload } from '../../../assets/images/upload.svg'
 import multipleEvents from '../../../Helpers/multipleEventListener'
 import { ReactComponent as Close} from '../../../assets/images/close.svg'
 import ApiDropDown from '../../APiDropDown/ApiDropDown'
+import CheckBoxGroup from "../../CheckBoxInput/CheckBoxGroup/CheckBoxGroup";
 
 
 const Input = ({ name, Type, inputConfig, value, errors, action}) => {
 	let imageClassList = [styles.imageupload]
-	const [activeImage, setActiveImage] = useState(false)
 	const boxRef = useRef()
 	const imageInputRef = useRef()
 	const [imgUrl, setImgUrl] = useState(null)
@@ -66,8 +66,8 @@ const Input = ({ name, Type, inputConfig, value, errors, action}) => {
 	switch(Type){
 		case("checkGroup"):
 			input = (<React.Fragment>
-					
-			</React.Fragment>)
+						<CheckBoxGroup value={value} inputConfig={inputConfig} SetValueFunc={action}/>
+					</React.Fragment>)
 			break
 		case("input"):
 			input = (<React.Fragment>

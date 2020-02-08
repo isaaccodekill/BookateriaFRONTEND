@@ -87,12 +87,17 @@ const UploadBook = ( ) => {
 			valid: true,
 			validations: {
 				required: true,
-				alloweFileType: ["pdf", "epub"]
+				allowedFileType: ["pdf", "epub"]
 			},
 			errorMessages: []
 		},
 		tags: {
-			
+			value: [],
+			elementType: "checkGroup",
+			elementConfig: {
+				placeholder: "Add a tag"
+			},
+			errorMessages: []
 		}
 	}
 

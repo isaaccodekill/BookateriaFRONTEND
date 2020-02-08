@@ -1,0 +1,57 @@
+.checkGroup{
+    padding: 20px 0;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.Label{
+    font-size: 13px;
+    display: block;
+    margin-bottom: 5px;
+    color: #00386E;
+    align-self: flex-start;
+    font-weight: bold;
+}
+
+.input{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 15px 20px;
+    font-size: 15px;
+    outline: none;
+    width: 100%;
+    transform: scaleY(1);
+    transition: all 0.5s ease;
+}
+
+
+
+.inputGroup{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.button{
+    border: none;
+    width: 120px;
+    font-size: 12px;
+    background-color: #00386E;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 17px 32px;
+    color: #fff;
+    text-transform: capitalize;
+    outline: none;
+
+}
+
+
+
+
+
+
+
+
+
