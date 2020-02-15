@@ -1,9 +1,8 @@
 import React from 'react'
-import styles from './UploadBook.module.css'
-import TopHeader from '../../UI/Headers/TopHeader/TopHeader'
-import SubHeader from '../../UI/Headers/SubHeader/SubHeader'
 import Form from '../../Forms/Form/Form'
 import PageLayout from '../../PageLayout/PageLayout'
+import {documentActions} from "../../../Actions";
+// import {  }
 
 const UploadBook = ( ) => {
 
@@ -112,7 +111,7 @@ const UploadBook = ( ) => {
 
 	return (
 		<PageLayout background showButton>
-			<Form Heading="Upload a book" configuration={configObject} buttonConfig={buttonConfig} />
+			<Form Heading="Upload a book" configuration={configObject} buttonConfig={buttonConfig} action={documentActions.createDocumentAsync} />
 		</PageLayout>
 	)
 }

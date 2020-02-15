@@ -1,0 +1,5 @@
+export const search = "SEARCH"
+export const setSearchTerm = "SET_SEARCH_TERM"
+export const showLoading = "SHOW_LOADING"
+export const hideLoading = "HIDE_LOADING"
+export const clearResults = "CLEAR_RESULT"

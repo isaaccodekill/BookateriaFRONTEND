@@ -18,11 +18,18 @@ const ViewBook = ({ match }) => {
 
 
 	useEffect(() => {
+		console.log("new id")
 		if (documentState.selectedDocument === null){
 			dispatch(documentActions.selectedDocumentAsync(id))
 		}
-	}, [])
+	}, [id])
 
+	// useEffect(() => {
+	// 	if (documentState.selectedDocument === null){
+	// 		dispatch(documentActions.selectedDocumentAsync(id))
+	// 	}
+	// }, [])
+	//
 
 	return (
 		<PageLayout background showButton>
@@ -44,27 +51,6 @@ const ViewBook = ({ match }) => {
 					{
 						loading ? Array(3).fill().map(() =>(<BookPreviewLoader imageIncluded background />)) : null
 					}
-					{/* <BookPreview imageIncluded clickable BookDetails={{
-						id: 1,
-						title: "The journey of Isaac Bello",
-						author: "Isaac Bello",
-						category: "Biography",	
-						downloads: 999}}
-					 />
-					 <BookPreview imageIncluded clickable BookDetails={{
-					 	id: 1,
-						title: "The journey of Isaac Bello",
-						author: "Isaac Bello",
-						category: "Biography",	
-						downloads: 999}}
-					 />
-					 <BookPreview imageIncluded clickable BookDetails={{
-					 	id: 1,
-						title: "The journey of Isaac Bello",
-						author: "Isaac Bello",
-						category: "Biography",	
-						downloads: 999}} */}
-					 {/* /> */}
 				</div>
 			</div>
 		</PageLayout>

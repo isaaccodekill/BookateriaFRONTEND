@@ -33,6 +33,11 @@ export default function documentReducer(state = initialStore, action){
                     message: action.payload
                 }
             }
+        case (documentActions.CLEAR_SELECTED_DOCUMENT):
+            return{
+                ...state,
+                selectedDocument: null
+            }
         case(documentActions.DOCUMENT_ACTION_FAILURE):
             return {
                 ...state,

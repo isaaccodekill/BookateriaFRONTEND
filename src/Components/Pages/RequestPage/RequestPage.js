@@ -36,7 +36,7 @@ const RequestPage = () => {
 			},
 			errorMessages: []
 		},
-		Category: {
+		category: {
 			elementType: "selectApi",
 			elementConfig: {
 				placeholder: "Add a Category",

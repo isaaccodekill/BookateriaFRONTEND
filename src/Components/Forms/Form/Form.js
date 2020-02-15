@@ -166,7 +166,7 @@ const Form = ( { Heading,  configuration, buttonConfig, action } ) => {
 	
 	async function submitHelper(body){
 			console.log("forms body", body)
-			// dispatch(action(body))
+			dispatch(action(body))
 	}
 
 
