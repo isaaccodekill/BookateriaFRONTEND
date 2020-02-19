@@ -1,0 +1,17 @@
+.Loader{
+    display: inline-block;
+    border: 3px solid #ccc;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    animation: spin 1s linear 0s infinite forwards;
+    border-radius: 50%;
+}
+
+@keyframes spin{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}

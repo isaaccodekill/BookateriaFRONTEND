@@ -12,15 +12,14 @@ const SideBar  = (open, setOpen) => {
 		<React.Fragment>
 			<div className={backList.join(' ')} onClick={() => open.setOpen(false)}></div>
 			<div  className={classList.join(' ')}>
+				<div className={styles.SearchBarDiv}>
+					<SearchBar/>
+				</div>
 				<Navitem background path="categories" label="Categories/Tags"/>
 				<Navitem background path="books" label="Top Books"/>
 				<Navitem background path="requestbook" label="Request A Document"/>
 				<Navitem background path="uploadbook" label="Upload A Document"/>
 				<Navitem background path="requests" label="Requested Documents"/>
-				<div className={styles.SearchBarDiv}>
-					<SearchBar/>
-				</div>
-	
 			</div>
 		</React.Fragment>
 

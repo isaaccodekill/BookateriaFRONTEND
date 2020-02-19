@@ -32,11 +32,7 @@ const SearchBar = ({ history }) => {
 		history.push(`/book/${id}`)
 	}
 
-	useEffect(() => {
-		if(searchStore.searchResults.length > 0){
-			console.log("This are the results", searchStore.searchResults)
-		}
-	}, [searchStore.searchResults])
+
 
 	return (
 		<div className={styles.SearchBar}>

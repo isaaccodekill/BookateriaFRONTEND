@@ -1,0 +1,128 @@
+.selectInputGroup{
+    width: 100%;
+	/*margin-bottom: 13px;*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+    color: #333;
+    position: relative;
+}
+
+.Label{
+	font-size: 13px;
+	display: block;
+	margin-bottom: 5px;
+	color: #00386E;
+	align-self: flex-start;
+    font-weight: bold;
+}
+
+.selectedOption{
+    width: 100%;
+	display: block;
+	margin-bottom: 5px;
+    color: #333;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    height: 50px;
+    padding: 15px 20px;
+    font-size: 15px;    
+    position: relative;
+}
+
+.selectedOption svg {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    opacity: 1;
+    transition: all 0.3s ease;
+    height: 20px;
+    transition: all 0.5s ease;
+}
+
+
+.activesvg{
+    transform: rotate(180deg);
+}
+
+
+
+.errors{
+    font-size: 10px;
+    color: red;
+    text-align: left;
+    width: 100%;
+}
+
+.selectList{
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 20;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    min-height: 40px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.internalErrors{
+    font-size: 20px;
+    color: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    height: 30px;
+}
+
+.optionHolder{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.option{
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #fff;
+    transition: all 0.5s ease;
+    color: #333;
+    cursor: pointer;
+}
+
+.option:hover{
+    background-color: #ccc;
+}
+
+.background{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.activeBackground{
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+.activeShowList{
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+
+
+
+

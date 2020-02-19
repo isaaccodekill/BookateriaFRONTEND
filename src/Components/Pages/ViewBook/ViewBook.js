@@ -18,18 +18,10 @@ const ViewBook = ({ match }) => {
 
 
 	useEffect(() => {
-		console.log("new id")
 		if (documentState.selectedDocument === null){
 			dispatch(documentActions.selectedDocumentAsync(id))
 		}
 	}, [id])
-
-	// useEffect(() => {
-	// 	if (documentState.selectedDocument === null){
-	// 		dispatch(documentActions.selectedDocumentAsync(id))
-	// 	}
-	// }, [])
-	//
 
 	return (
 		<PageLayout background showButton>
